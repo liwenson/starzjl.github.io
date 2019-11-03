@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="CentOS7 生产环境安装 redis  软件版本: redis-4.0.11下载地址：http:&#x2F;&#x2F;download.redis.io&#x2F;releases&#x2F;redis-4.0.11.tar.gz操作系统：硬件配置：   系统优化关闭 NetworkManager 12345[root@ecs-a073 ~]# systemctl stop NetworkManager[root@ecs-a073">
+<meta name="keywords" content="devops k8s python java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis_install">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;03&#x2F;01&#x2F;redis_install&#x2F;index.html">
+<meta property="og:site_name" content="落魄de少爷">
+<meta property="og:description" content="CentOS7 生产环境安装 redis  软件版本: redis-4.0.11下载地址：http:&#x2F;&#x2F;download.redis.io&#x2F;releases&#x2F;redis-4.0.11.tar.gz操作系统：硬件配置：   系统优化关闭 NetworkManager 12345[root@ecs-a073 ~]# systemctl stop NetworkManager[root@ecs-a073">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-01T05:12:51.944Z">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/01/redis_install/"/>
+
+
+
+
+
+  <title>Redis_install | 落魄de少爷</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">落魄de少爷</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">运维狗</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/01/redis_install/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZhouJinliang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="落魄de少爷">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Redis_install</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-01T04:44:38+08:00">
+                2019-03-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="CentOS7-生产环境安装-redis"><a href="#CentOS7-生产环境安装-redis" class="headerlink" title="CentOS7 生产环境安装 redis  "></a><strong>CentOS7 生产环境安装 redis</strong>  </h2><p>软件版本: redis-4.0.11<br>下载地址：<a href="http://download.redis.io/releases/redis-4.0.11.tar.gz" target="_blank" rel="noopener">http://download.redis.io/releases/redis-4.0.11.tar.gz</a><br>操作系统：<br>硬件配置：  </p>
+<h2 id="系统优化"><a href="#系统优化" class="headerlink" title="系统优化"></a><strong>系统优化</strong></h2><p><strong>关闭 NetworkManager</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@ecs-a073 ~]# systemctl stop NetworkManager</span><br><span class="line">[root@ecs-a073 ~]# systemctl disable NetworkManager</span><br><span class="line">Removed symlink /etc/systemd/system/multi-user.target.wants/NetworkManager.service.</span><br><span class="line">Removed symlink /etc/systemd/system/dbus-org.freedesktop.nm-dispatcher.service.</span><br><span class="line">Removed symlink /etc/systemd/system/dbus-org.freedesktop.NetworkManager.service.</span><br></pre></td></tr></table></figure>
+<p><strong>设置与内存相关的内存参数</strong><br>Redis中不需要使用与数据集大小相同的空闲内存。但是Linux在默认情况下可能会检查是否有足够的空闲内存来复制父进程的所有内存页，可能导致Out of Memory而崩溃。所以要将overcommit设为1，表示当一个程序调用诸如malloc（）等函数分配内存时，即使系统没有足够的内存空间函数也会执行成功。</p>
+<p>swappiness参数值越大，内核进行内存交换越激进。</p>
+<p>启用虚拟内存后，redis会尝试访问磁盘上的虚拟内存。会导致redis被磁盘I/O阻塞。redis我们要发挥他的高速处理能力，所以设置成swappiness=0禁用交换分区</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@ecs-a073 ~]# sysctl -w vm.overcommit_memory=1</span><br><span class="line">vm.overcommit_memory = 1</span><br><span class="line">[root@ecs-a073 ~]# sysctl -w vm.swappiness=0</span><br><span class="line">vm.swappiness = 0</span><br></pre></td></tr></table></figure>
+<p><strong>持久化保存这些参数</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@ecs-a073 ~]# echo “vm.overcommit_memory=1” &gt;&gt; /etc/sysctl.conf</span><br><span class="line">[root@ecs-a073 ~]# echo “vm.swappiness=0” &gt;&gt; /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
+<p><strong>检查参数是否已被设置</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@ecs-a073 ~]# sysctl vm.overcommit_memory vm.swappiness</span><br><span class="line">vm.overcommit_memory = 1</span><br><span class="line">vm.swappiness = 0</span><br></pre></td></tr></table></figure>
+<p><strong>禁止透明大页功能</strong><br>使用透明大页功能会导致持久化的子进程创建缓慢，所以禁用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@ecs-a073 ~]# echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled</span><br><span class="line">[root@ecs-a073 ~]# echo never &gt; /sys/kernel/mm/transparent_hugepage/defrag</span><br></pre></td></tr></table></figure>
+<p><strong>持久化保存这些设置</strong>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@ecs-a073 ~]# cat &gt;&gt; /etc/rc.local &lt;&lt; EOF</span><br><span class="line">&gt; echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled</span><br><span class="line">&gt; echo never &gt; /sys/kernel/mm/transparent_hugepage/defrag</span><br><span class="line">&gt; EOF</span><br></pre></td></tr></table></figure>
+<p><strong>检查参数是否已被设置</strong>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@ecs-a073 ~]# cat /sys/kernel/mm/transparent_hugepage/enabled</span><br><span class="line">always madvise [never]</span><br><span class="line">[root@ecs-a073 ~]# cat /sys/kernel/mm/transparent_hugepage/defrag</span><br><span class="line">always madvise [never]</span><br></pre></td></tr></table></figure>
+<p><strong>网络优化，设置与网络相关的内核参数</strong><br>默认的2个参数是128.设置大一点可以优化TCP连接  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@ecs-a073 ~]# sysctl -w net.core.somaxconn=65535</span><br><span class="line">net.core.somaxconn = 65535</span><br><span class="line">[root@ecs-a073 ~]# sysctl -w net.ipv4.tcp_max_syn_backlog=65535</span><br><span class="line">net.ipv4.tcp_max_syn_backlog = 65535</span><br></pre></td></tr></table></figure>
+<p><strong>持久化保存参数</strong>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@ecs-a073 ~]# echo “net.core.somaxconn=65535” &gt;&gt; /etc/sysctl.conf</span><br><span class="line">[root@ecs-a073 ~]# echo “net.ipv4.tcp_max_syn_backlog=65535” &gt;&gt; /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
+<p><strong>检查参数是否已被设置</strong>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@ecs-a073 ~]# sysctl net.core.somaxconn net.ipv4.tcp_max_syn_backlog</span><br><span class="line">net.core.somaxconn = 65535</span><br><span class="line">net.ipv4.tcp_max_syn_backlog = 65535</span><br></pre></td></tr></table></figure>
+<p><strong>开启SYN Cookies</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@ecs-a073 ~]# echo “net.ipv4.tcp_syncookies = 1” &gt;&gt; /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
+<p><strong>定时矫正服务器时间</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@ecs-a073 ~]# ntpdate ntp.api.bz</span><br><span class="line">25 Oct 16:13:55 ntpdate[4304]: step time server 182.92.12.11 offset 0.995419 sec</span><br><span class="line">[root@ecs-a073 ~]# crontab -e</span><br><span class="line">// 加入一行</span><br><span class="line">*/5 * * * * /usr/sbin/ntpdate ntp.api.bz</span><br></pre></td></tr></table></figure>
+<p><strong>调整Linux的最大文件打开数</strong>  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@ecs-a073 ~]# vim /etc/systemd/system.conf</span><br><span class="line">// 修改成下面的参数</span><br><span class="line">DefaultLimitNOFILE=1024000</span><br><span class="line">DefaultLimitNPROC=1024000 (注意 重启才能生效)</span><br><span class="line">[root@ecs-a073 ~]# ulimit -a</span><br><span class="line">open files                      (-n) 1024</span><br><span class="line">重启后查看：</span><br><span class="line">open files                      (-n) 1024000</span><br></pre></td></tr></table></figure>
+<h2 id="安装-Redis"><a href="#安装-Redis" class="headerlink" title="安装 Redis"></a><strong>安装 Redis</strong></h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[root@ecs-a073 opt]# cd /opt/</span><br><span class="line">[root@ecs-a073 opt]# wget http://download.redis.io/releases/redis-4.0.11.tar.gz</span><br><span class="line">[root@ecs-a073 opt]# tar zxvf redis-4.0.11.tar.gz</span><br><span class="line">[root@ecs-a073 opt]# mv redis-4.0.11 redis</span><br><span class="line">[root@ecs-a073 opt]# cd redis/</span><br><span class="line">yum install gcc</span><br><span class="line">cd deps</span><br><span class="line">make hiredis jemalloc linenoise lua</span><br><span class="line">[root@ecs-a073 redis]# make MALLOC=libc</span><br><span class="line">[root@ecs-a073 redis]# make install (这步骤其实是就是在/usr/local/bin下产生二进制文件)</span><br><span class="line">[root@ecs-a073 bin]# pwd</span><br><span class="line">/usr/local/bin</span><br><span class="line">[root@ecs-a073 bin]# ll</span><br><span class="line">总用量 11572</span><br><span class="line">-rwxr-xr-x 1 root root  354024 10月 25 14:57 redis-benchmark</span><br><span class="line">-rwxr-xr-x 1 root root 3646760 10月 25 14:57 redis-check-aof</span><br><span class="line">-rwxr-xr-x 1 root root 3646760 10月 25 14:57 redis-check-rdb</span><br><span class="line">-rwxr-xr-x 1 root root  520296 10月 25 14:57 redis-cli</span><br><span class="line">lrwxrwxrwx 1 root root      12 10月 25 14:57 redis-sentinel -&gt; redis-server</span><br><span class="line">-rwxr-xr-x 1 root root 3646760 10月 25 14:57 redis-server</span><br></pre></td></tr></table></figure>
+<h2 id="配置-Redis"><a href="#配置-Redis" class="headerlink" title="配置 Redis"></a><strong>配置 Redis</strong></h2><p><strong>建立文件夹</strong><br>/etc/redis 存放Redis的配置文件<br>/opt/redis-data/端口号    存放Redis的持久化文件  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@ecs-a073 redis-4.0.11]# mkdir /etc/redis</span><br><span class="line">[root@ecs-a073 redis-4.0.11]# mkdir -p /opt/redis-data/6379</span><br></pre></td></tr></table></figure>
+<p><strong>复制conf文件</strong><br>将redis安装目录中的redis.conf复制到/etc/redis中，然后重命名成端口号.conf  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@ecs-a073 opt]# cd /opt/redis-4.0.11/</span><br><span class="line">[root@ecs-a073 redis-4.0.11]# cp redis.conf /etc/redis/</span><br><span class="line">[root@ecs-a073 redis-4.0.11]# cd /etc/redis/</span><br><span class="line">[root@ecs-a073 redis]# mv redis.conf 6379.conf</span><br></pre></td></tr></table></figure>
+<p><strong>复制初始化脚本</strong>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@ecs-a073 redis]# cd /opt/redis-4.0.11/utils/</span><br><span class="line">[root@ecs-a073 utils]# cp redis_init_script /etc/init.d</span><br><span class="line">[root@ecs-a073 utils]# cd /etc/init.d/</span><br><span class="line">[root@ecs-a073 init.d]# mv redis_init_script redis_6379</span><br></pre></td></tr></table></figure>
+<p><strong>修改 conf 文件</strong>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@ecs-a073 init.d]# cd /etc/redis/</span><br><span class="line">[root@ecs-a073 redis]# vim 6379.conf</span><br></pre></td></tr></table></figure>
+<p>修改的内容：<br>bind 127.0.0.1 —&gt; bind 0.0.0.0<br>protected-mode yes —&gt; protected-mode no<br>daemonize no —&gt; daemonize yes<br>pidfile /var/run/redis_6379.pid 这个默认就可以<br>dir ./ —&gt; dir /opt/redis-data/6379<br>appendonly no —&gt; appendonly yes<br>requirepass foobared 若需要设置密码就把注释打开，改成你要设置的密码  </p>
+<h2 id="设置开机启动redis"><a href="#设置开机启动redis" class="headerlink" title="设置开机启动redis"></a><strong>设置开机启动redis</strong></h2><p>编辑/etc/init.d/redis_6379文件，在#!/bin/bash 之后添加如下两行  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@ecs-a073 redis]# vim /etc/init.d/redis_6379</span><br><span class="line"># chkconfig: 2345 10 90</span><br><span class="line"># description: redis_6379 service manage…</span><br></pre></td></tr></table></figure>
+<p>将redis_6379放入linux启动管理体系中  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@ecs-a073 redis]# chkconfig --add redis_6379</span><br></pre></td></tr></table></figure>
+<p>查看redis_6379服务在各运行级状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@ecs-a073 redis]# chkconfig --list redis_6379</span><br><span class="line"></span><br><span class="line">注意：该输出结果只显示 SysV 服务，并不包含原生 systemd 服务。SysV 配置数据可能被原生 systemd 配置覆盖。</span><br><span class="line">      如果您想列出 systemd 服务,请执行 &apos;systemctl list-unit-files&apos;。</span><br><span class="line">      欲查看对特定 target 启用的服务请执行</span><br><span class="line">      &apos;systemctl list-dependencies [target]&apos;。</span><br><span class="line"></span><br><span class="line">redis_6379     	0:关	1:关	2:开	3:开	4:开	5:开	6:关</span><br></pre></td></tr></table></figure>
+<h2 id="启动关闭redis"><a href="#启动关闭redis" class="headerlink" title="启动关闭redis"></a><strong>启动关闭redis</strong></h2><p>现在可以使用/etc/init.d/redis_端口号 start来启动redis了  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@ecs-a073 redis-data]# /etc/init.d/redis_6379 start</span><br><span class="line">[root@ecs-a073 redis-data]# /etc/init.d/redis_6379 stop</span><br></pre></td></tr></table></figure>
+<p>上面的stop方法可以停止redis，但是考虑到 Redis 有可能正在将内存中的数据同步到硬盘中，强行终止 Redis 进程可能会导致数据丢失。正确停止Redis的方式应该是向Redis发送SHUTDOWN命令，方法为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@ecs-a073 ~]# redis-cli SHUTDOWN</span><br></pre></td></tr></table></figure>
+<p>参考文档：<a href="http://www.azurew.com/9086.html" target="_blank" rel="noopener">http://www.azurew.com/9086.html</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/01/mysql_install/" rel="next" title="Mysql_install">
+                <i class="fa fa-chevron-left"></i> Mysql_install
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/04/blackbox_exporter/" rel="prev" title="Blackbox_exporter">
+                Blackbox_exporter <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ZhouJinliang</p>
+              <p class="site-description motion-element" itemprop="description">devops k8s python java</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CentOS7-生产环境安装-redis"><span class="nav-number">1.</span> <span class="nav-text">CentOS7 生产环境安装 redis  </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统优化"><span class="nav-number">2.</span> <span class="nav-text">系统优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-Redis"><span class="nav-number">3.</span> <span class="nav-text">安装 Redis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置-Redis"><span class="nav-number">4.</span> <span class="nav-text">配置 Redis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置开机启动redis"><span class="nav-number">5.</span> <span class="nav-text">设置开机启动redis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动关闭redis"><span class="nav-number">6.</span> <span class="nav-text">启动关闭redis</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZhouJinliang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
