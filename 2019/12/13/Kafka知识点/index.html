@@ -79,14 +79,15 @@
 
 
 
-<meta name="description" content="devops k8s python java">
+<meta name="description" content="kafka_topic 删除第一步: 配置文件 server.properties 增加配置项 delete.topic.enable=true   第二步: 依次重启kafka  systemctl stop kafka  systemctl start kafka 第三步: 删除kafka存储目录，logs.dir 配置 相关 topic 目录 第四步: 删除命令  ..&#x2F;bin&#x2F;kafka-">
 <meta name="keywords" content="devops k8s python java">
-<meta property="og:type" content="website">
-<meta property="og:title" content="落魄de少爷">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2019&#x2F;index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kafka知识点">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;13&#x2F;Kafka%E7%9F%A5%E8%AF%86%E7%82%B9&#x2F;index.html">
 <meta property="og:site_name" content="落魄de少爷">
-<meta property="og:description" content="devops k8s python java">
+<meta property="og:description" content="kafka_topic 删除第一步: 配置文件 server.properties 增加配置项 delete.topic.enable=true   第二步: 依次重启kafka  systemctl stop kafka  systemctl start kafka 第三步: 删除kafka存储目录，logs.dir 配置 相关 topic 目录 第四步: 删除命令  ..&#x2F;bin&#x2F;kafka-">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-12-13T03:13:33.081Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -117,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2019/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/12/13/Kafka知识点/"/>
 
 
 
 
 
-  <title>归档 | 落魄de少爷</title>
+  <title>Kafka知识点 | 落魄de少爷</title>
   
 
 
@@ -142,7 +143,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -246,333 +247,149 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/13/Kafka%E7%9F%A5%E8%AF%86%E7%82%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZhouJinliang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/hello.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="落魄de少爷">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Kafka知识点</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-13T11:03:34+08:00">
+                2019-12-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 8 篇日志。 继续努力。
-      </span>
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
+            
+          
 
-        
+          
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/12/13/Kafka%E7%9F%A5%E8%AF%86%E7%82%B9/" itemprop="url">
-              
-                <span itemprop="name">Kafka知识点</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-12-13T11:03:34+08:00"
-              content="2019-12-13" >
-          12-13
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+        </div>
+      </header>
+    
 
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/12/13/%E7%B3%BB%E5%88%97%E4%B8%89-Java%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/" itemprop="url">
-              
-                <span itemprop="name">系列三:Java高级语言特性</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-12-13T09:06:54+08:00"
-              content="2019-12-13" >
-          12-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/12/12/%E7%B3%BB%E5%88%97%E4%BA%8C:Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/" itemprop="url">
-              
-                <span itemprop="name">系列二:Java面向对象编程</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-12-12T14:41:56+08:00"
-              content="2019-12-12" >
-          12-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/12/06/rancher2.x%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/" itemprop="url">
-              
-                <span itemprop="name">rancher2.x 知识点整理</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-12-06T17:18:58+08:00"
-              content="2019-12-06" >
-          12-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+        <h1 id="kafka-topic-删除"><a href="#kafka-topic-删除" class="headerlink" title="kafka_topic 删除"></a>kafka_topic 删除</h1><p>第一步: 配置文件 server.properties 增加配置项 delete.topic.enable=true  </p>
+<p>第二步: 依次重启kafka  systemctl stop kafka  systemctl start kafka</p>
+<p>第三步: 删除kafka存储目录，logs.dir 配置 相关 topic 目录</p>
+<p>第四步: 删除命令  ../bin/kafka-topics.sh –delete –zookeeper zk01:2181,zk02:2181,zk03:2181 –delete —topic=name</p>
+<p>还有一种方式可以删除：</p>
+<p>执行上面的 4 步骤，如果发现还没删除 那就：</p>
+<p>第一步：用户 zk客户端工具  执行命令 ./zkCli.sh<br>第二步：找到 topic 所在的目录  ls /brokers/topics<br>第三步：找到要删除的 topic 执行命令：rmr /brokers/topics/topic_name ,这样 topic 就被彻底删除了<br>ps: 被标记为marked for deletion的topic你可以在zookeeper客户端中通过命令获得：ls /admin/delete_topics/topicname</p>
+<p>常用命令：</p>
+<p>查看所有 topic:<br>../bin/kafka-topics.sh –zookeeper zk01:2181,zk02:2181,zk03:2181 —list</p>
+<h1 id="命令行操作"><a href="#命令行操作" class="headerlink" title="命令行操作"></a>命令行操作</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">kafka-topics.sh —create —zookeeper ip:2181 —partitions 2 —replication-factor 2 —topic first</span><br><span class="line">kafka-topics.sh — list — zookeeper ip:2181</span><br><span class="line"></span><br><span class="line">```shell</span><br><span class="line">kafka-console-producer.sh -- broker-list ip:9092 —topic first</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">hello</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">world</span></span><br><span class="line"></span><br><span class="line">kafka-console-consumer.sh --zookeeper ip:2181 --topic first --from-beginning</span><br><span class="line">kafka-console-consumer.sh --bootstrap-server ip:9092 --topic first --from-beginning</span><br><span class="line"></span><br><span class="line">kafka-topics.sh --zookeeper ip:2181 --describe --topic first</span><br></pre></td></tr></table></figure>
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/12/05/%E9%98%B6%E6%AE%B52%EF%BC%9A%E4%BA%91%E5%8E%9F%E7%94%9F%E6%8A%80%E6%9C%AF%E8%BF%9B%E9%98%B6/" itemprop="url">
-              
-                <span itemprop="name">阶段2：云原生技术进阶</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-12-05T15:36:00+08:00"
-              content="2019-12-05" >
-          12-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/12/05/%E9%98%B6%E6%AE%B51%EF%BC%9A%E4%BA%91%E5%8E%9F%E7%94%9F%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80/" itemprop="url">
-              
-                <span itemprop="name">阶段1：云原生技术基础</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-12-05T15:19:13+08:00"
-              content="2019-12-05" >
-          12-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/03/08/elk%E6%97%A5%E5%BF%97%E5%B9%B3%E5%8F%B0/" itemprop="url">
-              
-                <span itemprop="name">Elk日志平台</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-03-08T07:56:07+08:00"
-              content="2019-03-08" >
-          03-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/28/%E8%BF%90%E7%BB%B4%E5%9F%BA%E7%A1%80-%E9%83%A8%E7%BD%B2%E7%AF%87/" itemprop="url">
-              
-                <span itemprop="name">运维基础-部署篇</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-02-28T02:54:00+08:00"
-              content="2019-02-28" >
-          02-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/13/%E7%B3%BB%E5%88%97%E4%B8%89-Java%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/" rel="next" title="系列三:Java高级语言特性">
+                <i class="fa fa-chevron-left"></i> 系列三:Java高级语言特性
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -580,6 +397,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -600,8 +421,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -656,6 +486,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#kafka-topic-删除"><span class="nav-number">1.</span> <span class="nav-text">kafka_topic 删除</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#命令行操作"><span class="nav-number">2.</span> <span class="nav-text">命令行操作</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -796,6 +642,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
