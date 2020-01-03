@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="落魄de少爷">
 <meta property="og:description" content="kafka部署zookeeper集群安装与部署123wget http:&#x2F;&#x2F;mirror.bit.edu.cn&#x2F;apache&#x2F;zookeeper&#x2F;zookeeper-3.5.5&#x2F;apache-zookeeper-3.5.5-bin.tar.gztar zxvf apache-zookeeper-3.5.5-bin.tar.gzmv apache-zookeeper-3.5.5-bin zookee">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-30T01:42:10.020Z">
+<meta property="og:updated_time" content="2020-01-03T04:25:02.517Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -337,6 +337,8 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo "1" &gt;/opt/zookeeper/data/myid</span><br><span class="line">echo "2" &gt;/opt/zookeeper/data/myid</span><br><span class="line">echo "3" &gt;/opt/zookeeper/data/myid</span><br></pre></td></tr></table></figure>
 <p>创建实例的配置文件  </p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -f zoo_sample.cfg zoo.cfg</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
 <p>修改配置文件内容如下:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">tickTime=2000</span><br><span class="line">initLimit=10</span><br><span class="line">syncLimit=5</span><br><span class="line">dataDir=/opt/zookeeper/data</span><br><span class="line">dataLogDir=/opt/zookeeper/log</span><br><span class="line">clientPort=2181</span><br><span class="line">server.1=172.16.102.121:2888:3888</span><br><span class="line">server.2=172.16.102.122:2888:3888</span><br><span class="line">server.3=172.16.102.123:2888:3888</span><br></pre></td></tr></table></figure>
 <p>启动Zookeeper</p>

@@ -584,9 +584,15 @@
 
       
         
-          
-          kafka部署zookeeper集群安装与部署123wget http://mirror.bit.edu.cn/apache/zookeeper/zookeeper-3.5.5/apache-zookeeper-3.5.5-bin.tar.gztar zxvf apache-zookeeper-3.
-          ...
+          <h1 id="kafka部署"><a href="#kafka部署" class="headerlink" title="kafka部署"></a>kafka部署</h1><h2 id="zookeeper集群安装与部署"><a href="#zookeeper集群安装与部署" class="headerlink" title="zookeeper集群安装与部署"></a>zookeeper集群安装与部署</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http://mirror.bit.edu.cn/apache/zookeeper/zookeeper-3.5.5/apache-zookeeper-3.5.5-bin.tar.gz</span><br><span class="line">tar zxvf apache-zookeeper-3.5.5-bin.tar.gz</span><br><span class="line">mv apache-zookeeper-3.5.5-bin zookeeper</span><br></pre></td></tr></table></figure>
+<p>设置环境变量</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export ZK_HOME=/opt/zookeeper</span><br><span class="line">export PATH=$PATH:$ZK_HOME/bin</span><br></pre></td></tr></table></figure>
+<p>创建zookeeper实例运行所需的数据目录和日志目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /opt/zookeeper/data</span><br><span class="line">mkdir -p /opt/zookeeper/log</span><br></pre></td></tr></table></figure>
+<p>创建zookeeper实例id文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo "1" &gt;/opt/zookeeper/data/myid</span><br><span class="line">echo "2" &gt;/opt/zookeeper/data/myid</span><br><span class="line">echo "3" &gt;/opt/zookeeper/data/myid</span><br></pre></td></tr></table></figure>
+<p>创建实例的配置文件  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -f zoo_sample.cfg zoo.cfg</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/12/13/Kafka%E7%9F%A5%E8%AF%86%E7%82%B9/#more" rel="contents">
@@ -878,9 +884,7 @@
 
       
         
-          
-          第12章:继承的定义与使用课时59:继承问题的引出面向对象的第二大特征就是继承性,继承性的主要特点在于:可以扩充已有类的功能。继承问题的引出:所谓的良好的代码指的是结构性合理,适合于维护,可重用性很高,但是如果现在只是按照之前所学习到的概念进行程序的定义,那么不可避免的要面对重复问题,下面定义两个类
-          ...
+          <h1 id="第12章-继承的定义与使用"><a href="#第12章-继承的定义与使用" class="headerlink" title="第12章:继承的定义与使用"></a>第12章:继承的定义与使用</h1><h2 id="课时59-继承问题的引出"><a href="#课时59-继承问题的引出" class="headerlink" title="课时59:继承问题的引出"></a>课时59:继承问题的引出</h2><p>面向对象的第二大特征就是继承性,继承性的主要特点在于:可以扩充已有类的功能。<br>继承问题的引出:<br>所谓的良好的代码指的是结构性合理,适合于维护,可重用性很高,但是如果现在只是按照之前所学习到的概念进行程序的定义,那么不可避免的要面对重复问题,下面定义两个类:人类,学生类,如果按照传统定义,则结构如下:</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/12/12/%E7%B3%BB%E5%88%97%E4%BA%8C:Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/#more" rel="contents">
@@ -1004,20 +1008,23 @@
 
       
         
-          
-          rancher2.x 快速创建集群
-使用 Docker run 命令部署单节点 Rancher server
-必要前置条件
-OS with docker version
-CentOS7.6_x86-64
-Docker 18.09.x
-
-
-
-
-
-docker run -d -p 80:80 -p 44
-          ...
+          <h1 id="rancher2-x-快速创建集群"><a href="#rancher2-x-快速创建集群" class="headerlink" title="rancher2.x 快速创建集群"></a>rancher2.x 快速创建集群</h1><ul>
+<li>使用 Docker run 命令部署单节点 Rancher server</li>
+<li>必要前置条件<ul>
+<li>OS with docker version<ul>
+<li>CentOS7.6_x86-64</li>
+<li>Docker 18.09.x</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>docker run -d -p 80:80 -p 443:443  rancher/rancher:v2.3.3<br>doker logs 查看启动日志可以看到 rancher 在本地会去创建 CRD 的一些资源，然后在 rancher本身里面的话就会有包含一个微型的一个k8s api server 和一个 etcd 的进程，这是单节点跑的一个情况。</p>
+<h2 id="导入已有-K8S-集群"><a href="#导入已有-K8S-集群" class="headerlink" title="导入已有 K8S 集群"></a>导入已有 K8S 集群</h2><img src="https://zjl.ztocwst.com/static/images/rancher01.png">
+<img src="https://zjl.ztocwst.com/static/images/rancher02.png">
+<img src="https://zjl.ztocwst.com/static/images/rancher03.png">
+<img src="https://zjl.ztocwst.com/static/images/rancher04.png">
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl --insecure -sfL https://rancher.ops.com/v3/import/cfwbm2bdz6gcgxnkwvkshlqbxmwc96hbv4x6z8c4hhwnlntxx2dw28.yaml | kubectl apply -f -</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/12/06/rancher2.x%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/#more" rel="contents">
@@ -1311,15 +1318,13 @@ docker run -d -p 80:80 -p 44
 
       
         
-          
-          第1讲：第一堂“云原生”课学习收益：了解云原生的概念，本质，主流技术等本节大纲：  
-
-云原生技术发展历程（为什么要学习这门课程）
-课程简介与预备知识（这门课程到底教什么）
-云原生的定义与技术要点（本节正式内容）
-
-1.为什么要开设云原生技术公开课？zjlzjlzjlzjlzjlzjlzjlzjlz
-          ...
+          <h2 id="第1讲：第一堂“云原生”课"><a href="#第1讲：第一堂“云原生”课" class="headerlink" title="第1讲：第一堂“云原生”课"></a>第1讲：第一堂“云原生”课</h2><p>学习收益：了解云原生的概念，本质，主流技术等<br>本节大纲：  </p>
+<ul>
+<li>云原生技术发展历程（为什么要学习这门课程）</li>
+<li>课程简介与预备知识（这门课程到底教什么）</li>
+<li>云原生的定义与技术要点（本节正式内容）</li>
+</ul>
+<p>1.为什么要开设云原生技术公开课？zjlzjlzjlzjlzjlzjlzjlzjlzjl</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/12/05/%E9%98%B6%E6%AE%B51%EF%BC%9A%E4%BA%91%E5%8E%9F%E7%94%9F%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80/#more" rel="contents">
@@ -1443,9 +1448,8 @@ docker run -d -p 80:80 -p 44
 
       
         
-          
-          第 1 节：elk讲解框架和java1.8环境搭建第 2 节：kibana的安装和启动2.1 kibana 下载地址（kibana主要用来展示数据，它本身不存储数据)​       https://artifacts.elastic.co/downloads/kibana/kibana-6.6.1-
-          ...
+          <h2 id="第-1-节：elk讲解框架和java1-8环境搭建"><a href="#第-1-节：elk讲解框架和java1-8环境搭建" class="headerlink" title="第 1 节：elk讲解框架和java1.8环境搭建"></a>第 1 节：elk讲解框架和java1.8环境搭建</h2><h2 id="第-2-节：kibana的安装和启动"><a href="#第-2-节：kibana的安装和启动" class="headerlink" title="第 2 节：kibana的安装和启动"></a>第 2 节：kibana的安装和启动</h2><h3 id="2-1-kibana-下载地址（kibana主要用来展示数据，它本身不存储数据"><a href="#2-1-kibana-下载地址（kibana主要用来展示数据，它本身不存储数据" class="headerlink" title="2.1 kibana 下载地址（kibana主要用来展示数据，它本身不存储数据)"></a>2.1 kibana 下载地址（kibana主要用来展示数据，它本身不存储数据)</h3><p>​       <a href="https://artifacts.elastic.co/downloads/kibana/kibana-6.6.1-linux-x86_64.tar.gz" target="_blank" rel="noopener">https://artifacts.elastic.co/downloads/kibana/kibana-6.6.1-linux-x86_64.tar.gz</a></p>
+<h3 id="2-2-准备工作，添加-elk-用户-用-elk用户来启动-elk"><a href="#2-2-准备工作，添加-elk-用户-用-elk用户来启动-elk" class="headerlink" title="2.2 准备工作，添加 elk 用户, 用 elk用户来启动 elk"></a>2.2 准备工作，添加 elk 用户, 用 elk用户来启动 elk</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">useradd -s /sbin/nologin elk #不让elk用户登陆系统</span><br><span class="line">tar zxvf kibana-6.6.1-linux-x86_64.tar.gz</span><br><span class="line">mv kibana-6.6.1-linux-x86_64 /opt/kibana-6.6.1</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/03/08/elk%E6%97%A5%E5%BF%97%E5%B9%B3%E5%8F%B0/#more" rel="contents">
@@ -1569,13 +1573,28 @@ docker run -d -p 80:80 -p 44
 
       
         
-          
-          Ceph 部署Ceph 架构
-Ceph组件
-Ceph monitor【MON】 : Ceph监视器通过保存集群状态的映射来跟踪整个集群的健康状况，集群尽量安装单数个，防止脑裂。选举机制，2个人赞成，2个人反对。
-
-Ceph对象存储设备 【OSD】：整个组件最核心的，负责存储我们的数据，一旦应用程序向
-          ...
+          <h1 id="Ceph-部署"><a href="#Ceph-部署" class="headerlink" title="Ceph 部署"></a>Ceph 部署</h1><h2 id="Ceph-架构"><a href="#Ceph-架构" class="headerlink" title="Ceph 架构"></a>Ceph 架构</h2><p><img src="/Users/zjl/Desktop/ceph_arch.jpg" alt="ceph_arch"></p>
+<h5 id="Ceph组件"><a href="#Ceph组件" class="headerlink" title="Ceph组件"></a>Ceph组件</h5><ul>
+<li><p><strong>Ceph monitor【MON】</strong> : Ceph监视器通过保存集群状态的映射来跟踪整个集群的健康状况，集群尽量安装单数个，防止脑裂。选举机制，2个人赞成，2个人反对。</p>
+</li>
+<li><p><strong>Ceph对象存储设备 【OSD】</strong>：整个组件最核心的，负责存储我们的数据，一旦应用程序向 Ceph 集群发出写操作，数据就以对象的形式存储在OSD中</p>
+<p>注意：这是 Ceph 集群中存储实际用户数据的唯一组件，通常，一个 OSD 守护进程绑定到集群中的一个单独物理磁盘，因此，通常来说，Ceph集群中物理磁盘的总数总与在每个物理磁盘上存储用户数据的OSD守护进程的总数相同。</p>
+</li>
+<li><p><strong>Ceph metadata server 【MDS】</strong>：MDS跟踪文件层次结构，仅为CephFS文件系统存储元数据</p>
+</li>
+<li><p><strong>RADOS</strong> : RADOS对象存储负责存储这些对象，而不管他们的数据类型如何。RADOS层确保数据始终保持一致。为此，它执行数据复制，故障检测和恢复，以及跨集群节点的数据迁移和再平衡。</p>
+</li>
+<li><p><strong>Librados</strong>: librados 库是一种访问 RADOS 的方便方法，支持 PHP ， Ruby，Java，Python，C和C++编程语言。它为Ceph存储集群（RADOS）提供了本机接口，并为其他服务提供了基础，如RBD,RGW和CephFS，这些服务构建在librados之上。Librados还支持从应用程序直接访问 RADOS，没有 HTTP 开销。</p>
+</li>
+<li><p><strong>RBD</strong>：提供持久块存储，它是瘦配置的，可调整大小，并在多个 OSD 上存储数据条带。RBD服务被构建为一个在 librados之上的本机接口。</p>
+</li>
+<li><p><strong>RGW</strong>：RGW提供对象存储服务，它使用 librgw （Rados网关库）和 librados，允许应用程序与 Ceph 对象存储建立连接。RGW提供了与 Amazon S3 和 OpenStack Swift 兼容的 RESTful api 接口。</p>
+</li>
+<li><p><strong>CephFS</strong> : Ceph文件系统提供了一个符合 posix 标准的文件系统，它使用Ceph存储集群在文件系统上存储用户数据，与 RBD 和 RGW 一样， CephFS 服务也作为 librados 的本机接口实现。</p>
+</li>
+<li><p><strong>Ceph manager</strong> : Ceph manager 守护进程 (Ceph-mgr)是在Kraken版本中引入的，它与 monitor 守护进程一起运行，为外部监视和管理系统提供额外的监视和接口。</p>
+</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/02/28/%E8%BF%90%E7%BB%B4%E5%9F%BA%E7%A1%80-%E9%83%A8%E7%BD%B2%E7%AF%87/#more" rel="contents">
