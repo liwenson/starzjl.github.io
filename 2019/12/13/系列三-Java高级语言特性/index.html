@@ -90,7 +90,7 @@
 <meta property="og:description" content="第1章:Java多线程编程课时2:进程与线程&amp;nbsp;在java语言里面最大的特点是支持多线程的开发,也是为数不多支持多线程的编程语言,所以在整个java技术的学习里面,如果你不能够对多线程的概念有一个全面并且细致的了解,则在日后进行一些项目设计的过程之中,尤其是并发访问设计的过程之中就会出现严重的计算缺陷。如果想要理解线程,那么首先就需要了解一下进程的概念,在传统的DOS系统时代,其本身有一个">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https:&#x2F;&#x2F;zjl.ztocwst.com&#x2F;static&#x2F;images&#x2F;Thread的执行分析.png">
-<meta property="og:updated_time" content="2020-01-03T02:07:59.650Z">
+<meta property="og:updated_time" content="2020-02-03T04:18:50.823Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;zjl.ztocwst.com&#x2F;static&#x2F;images&#x2F;Thread的执行分析.png">
 
@@ -373,7 +373,7 @@
 <p>范例:通过Runnable实现多线程的主体类  </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String title;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyThread</span><span class="params">(String title)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.title = title;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTitle</span><span class="params">(String title)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.title = title;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getTitle</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.title;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> x = <span class="number">0</span>;x&lt;<span class="number">10</span>;x++)&#123;</span><br><span class="line">            System.out.println(<span class="keyword">this</span>.title+<span class="string">"运行,x="</span>+x);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>但是此时由于不再继承Thread父类了,那么对于此时的MyThread类中也就不再支持有start()这个继承的方法</p>
-<h2 id="课时5-Thread与Runnable关心"><a href="#课时5-Thread与Runnable关心" class="headerlink" title="课时5:Thread与Runnable关心"></a>课时5:Thread与Runnable关心</h2><h2 id="课时6-Callable接口实现多线程"><a href="#课时6-Callable接口实现多线程" class="headerlink" title="课时6:Callable接口实现多线程"></a>课时6:Callable接口实现多线程</h2><p>&nbsp; </p>
+<h2 id="课时5-Thread与Runnable关系"><a href="#课时5-Thread与Runnable关系" class="headerlink" title="课时5:Thread与Runnable关系"></a>课时5:Thread与Runnable关系</h2><h2 id="课时6-Callable接口实现多线程"><a href="#课时6-Callable接口实现多线程" class="headerlink" title="课时6:Callable接口实现多线程"></a>课时6:Callable接口实现多线程</h2><p>&nbsp; </p>
 <blockquote>
 <p>从最传统的开发来说如果要进行多线程的实现肯定依靠的就是 Runnable , 但是Runnable接口有一个缺点：当线程执行完毕之后无法获取一个返回值，所以从JDK1.5之后就提出了一个新的线程实现接口:java.util.concurrent.Callable接口，它可以帮我们实现多线程，首先来观察这个接口的定义：</p>
 </blockquote>
@@ -496,7 +496,7 @@
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -559,7 +559,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第1章-Java多线程编程"><span class="nav-number">1.</span> <span class="nav-text">第1章:Java多线程编程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#课时2-进程与线程"><span class="nav-number">1.1.</span> <span class="nav-text">课时2:进程与线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时3-Thread类实现多线程"><span class="nav-number">1.2.</span> <span class="nav-text">课时3:Thread类实现多线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时4-Runnable接口实现多线程"><span class="nav-number">1.3.</span> <span class="nav-text">课时4:Runnable接口实现多线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时5-Thread与Runnable关心"><span class="nav-number">1.4.</span> <span class="nav-text">课时5:Thread与Runnable关心</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时6-Callable接口实现多线程"><span class="nav-number">1.5.</span> <span class="nav-text">课时6:Callable接口实现多线程</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第1章-Java多线程编程"><span class="nav-number">1.</span> <span class="nav-text">第1章:Java多线程编程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#课时2-进程与线程"><span class="nav-number">1.1.</span> <span class="nav-text">课时2:进程与线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时3-Thread类实现多线程"><span class="nav-number">1.2.</span> <span class="nav-text">课时3:Thread类实现多线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时4-Runnable接口实现多线程"><span class="nav-number">1.3.</span> <span class="nav-text">课时4:Runnable接口实现多线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时5-Thread与Runnable关系"><span class="nav-number">1.4.</span> <span class="nav-text">课时5:Thread与Runnable关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时6-Callable接口实现多线程"><span class="nav-number">1.5.</span> <span class="nav-text">课时6:Callable接口实现多线程</span></a></li></ol></li></ol></div>
             
 
           </div>

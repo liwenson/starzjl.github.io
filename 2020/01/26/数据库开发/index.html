@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="落魄de少爷" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="系列一:数据库及SQL&#x2F;MySQL基础课时1:数据库概述课时2:Java应用与数据库的关系课时3:安装Mysql课时4:删除Mysql课时5:Mysql安装路径以及配置信息课时6:开启关闭服务器以及登录退出客户端课时7:SQL语言的概述课时8:DDL(数据定义语言)之操作数据库课时9:数据类型介绍1课时10:数据类型介绍2课时11:DDL(数据定义语言)之操作表课时12:DML(数据操作语言)之I">
+<meta name="keywords" content="devops k8s python java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库开发">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;26&#x2F;%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E5%8F%91&#x2F;index.html">
+<meta property="og:site_name" content="落魄de少爷">
+<meta property="og:description" content="系列一:数据库及SQL&#x2F;MySQL基础课时1:数据库概述课时2:Java应用与数据库的关系课时3:安装Mysql课时4:删除Mysql课时5:Mysql安装路径以及配置信息课时6:开启关闭服务器以及登录退出客户端课时7:SQL语言的概述课时8:DDL(数据定义语言)之操作数据库课时9:数据类型介绍1课时10:数据类型介绍2课时11:DDL(数据定义语言)之操作表课时12:DML(数据操作语言)之I">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-02-03T04:18:50.087Z">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/01/26/数据库开发/"/>
+
+
+
+
+
+  <title>数据库开发 | 落魄de少爷</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">落魄de少爷</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">运维狗</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/26/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E5%8F%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZhouJinliang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/hello.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="落魄de少爷">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数据库开发</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-26T15:13:00+08:00">
+                2020-01-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="系列一-数据库及SQL-MySQL基础"><a href="#系列一-数据库及SQL-MySQL基础" class="headerlink" title="系列一:数据库及SQL/MySQL基础"></a>系列一:数据库及SQL/MySQL基础</h1><h2 id="课时1-数据库概述"><a href="#课时1-数据库概述" class="headerlink" title="课时1:数据库概述"></a>课时1:数据库概述</h2><h2 id="课时2-Java应用与数据库的关系"><a href="#课时2-Java应用与数据库的关系" class="headerlink" title="课时2:Java应用与数据库的关系"></a>课时2:Java应用与数据库的关系</h2><h2 id="课时3-安装Mysql"><a href="#课时3-安装Mysql" class="headerlink" title="课时3:安装Mysql"></a>课时3:安装Mysql</h2><h2 id="课时4-删除Mysql"><a href="#课时4-删除Mysql" class="headerlink" title="课时4:删除Mysql"></a>课时4:删除Mysql</h2><h2 id="课时5-Mysql安装路径以及配置信息"><a href="#课时5-Mysql安装路径以及配置信息" class="headerlink" title="课时5:Mysql安装路径以及配置信息"></a>课时5:Mysql安装路径以及配置信息</h2><h2 id="课时6-开启关闭服务器以及登录退出客户端"><a href="#课时6-开启关闭服务器以及登录退出客户端" class="headerlink" title="课时6:开启关闭服务器以及登录退出客户端"></a>课时6:开启关闭服务器以及登录退出客户端</h2><h2 id="课时7-SQL语言的概述"><a href="#课时7-SQL语言的概述" class="headerlink" title="课时7:SQL语言的概述"></a>课时7:SQL语言的概述</h2><h2 id="课时8-DDL-数据定义语言-之操作数据库"><a href="#课时8-DDL-数据定义语言-之操作数据库" class="headerlink" title="课时8:DDL(数据定义语言)之操作数据库"></a>课时8:DDL(数据定义语言)之操作数据库</h2><h2 id="课时9-数据类型介绍1"><a href="#课时9-数据类型介绍1" class="headerlink" title="课时9:数据类型介绍1"></a>课时9:数据类型介绍1</h2><h2 id="课时10-数据类型介绍2"><a href="#课时10-数据类型介绍2" class="headerlink" title="课时10:数据类型介绍2"></a>课时10:数据类型介绍2</h2><h2 id="课时11-DDL-数据定义语言-之操作表"><a href="#课时11-DDL-数据定义语言-之操作表" class="headerlink" title="课时11:DDL(数据定义语言)之操作表"></a>课时11:DDL(数据定义语言)之操作表</h2><h2 id="课时12-DML-数据操作语言-之INSERT"><a href="#课时12-DML-数据操作语言-之INSERT" class="headerlink" title="课时12:DML(数据操作语言)之INSERT"></a>课时12:DML(数据操作语言)之INSERT</h2><h2 id="课时13-DML-数据操作语言-之修改记录"><a href="#课时13-DML-数据操作语言-之修改记录" class="headerlink" title="课时13:DML(数据操作语言)之修改记录"></a>课时13:DML(数据操作语言)之修改记录</h2><h2 id="课时14-DML-数据操作语言-之DELETE"><a href="#课时14-DML-数据操作语言-之DELETE" class="headerlink" title="课时14:DML(数据操作语言)之DELETE"></a>课时14:DML(数据操作语言)之DELETE</h2><h2 id="课时15-DCL-数据控制语言"><a href="#课时15-DCL-数据控制语言" class="headerlink" title="课时15:DCL(数据控制语言)"></a>课时15:DCL(数据控制语言)</h2><h2 id="课时16-DQL-数据查询语言-之基础查询之列控制"><a href="#课时16-DQL-数据查询语言-之基础查询之列控制" class="headerlink" title="课时16:DQL(数据查询语言)之基础查询之列控制"></a>课时16:DQL(数据查询语言)之基础查询之列控制</h2><h2 id="课时17-DQL-数据查询语言-之条件查询"><a href="#课时17-DQL-数据查询语言-之条件查询" class="headerlink" title="课时17:DQL(数据查询语言)之条件查询"></a>课时17:DQL(数据查询语言)之条件查询</h2><h2 id="课时18-DQL-数据查询语言-之模糊查询"><a href="#课时18-DQL-数据查询语言-之模糊查询" class="headerlink" title="课时18:DQL(数据查询语言)之模糊查询"></a>课时18:DQL(数据查询语言)之模糊查询</h2><h2 id="课时19-DQL-数据查询语言-之排序"><a href="#课时19-DQL-数据查询语言-之排序" class="headerlink" title="课时19:DQL(数据查询语言)之排序"></a>课时19:DQL(数据查询语言)之排序</h2><h2 id="课时20-DQL-数据查询语言-之聚合函数"><a href="#课时20-DQL-数据查询语言-之聚合函数" class="headerlink" title="课时20:DQL(数据查询语言)之聚合函数"></a>课时20:DQL(数据查询语言)之聚合函数</h2><h2 id="课时21-DQL-数据查询语言-之分组查询"><a href="#课时21-DQL-数据查询语言-之分组查询" class="headerlink" title="课时21:DQL(数据查询语言)之分组查询"></a>课时21:DQL(数据查询语言)之分组查询</h2><h2 id="课时22-DQL-数据查询语言-之limit方言"><a href="#课时22-DQL-数据查询语言-之limit方言" class="headerlink" title="课时22:DQL(数据查询语言)之limit方言"></a>课时22:DQL(数据查询语言)之limit方言</h2><h1 id="系列二-SQL进阶及查询练习"><a href="#系列二-SQL进阶及查询练习" class="headerlink" title="系列二:SQL进阶及查询练习"></a>系列二:SQL进阶及查询练习</h1><h2 id="课时1-单表的查询练习"><a href="#课时1-单表的查询练习" class="headerlink" title="课时1:单表的查询练习"></a>课时1:单表的查询练习</h2><h2 id="课时2-mysql编码问题"><a href="#课时2-mysql编码问题" class="headerlink" title="课时2:mysql编码问题"></a>课时2:mysql编码问题</h2><h2 id="课时3-mysql备份与恢复数据库"><a href="#课时3-mysql备份与恢复数据库" class="headerlink" title="课时3:mysql备份与恢复数据库"></a>课时3:mysql备份与恢复数据库</h2><h2 id="课时4-约束之主键约束"><a href="#课时4-约束之主键约束" class="headerlink" title="课时4:约束之主键约束"></a>课时4:约束之主键约束</h2><h2 id="课时5-主键自增长"><a href="#课时5-主键自增长" class="headerlink" title="课时5:主键自增长"></a>课时5:主键自增长</h2><h2 id="课时6-非空和唯一约束"><a href="#课时6-非空和唯一约束" class="headerlink" title="课时6:非空和唯一约束"></a>课时6:非空和唯一约束</h2><h2 id="课时7-概述模型，对象模型，关系模型"><a href="#课时7-概述模型，对象模型，关系模型" class="headerlink" title="课时7:概述模型，对象模型，关系模型"></a>课时7:概述模型，对象模型，关系模型</h2><h2 id="课时8-外键约束"><a href="#课时8-外键约束" class="headerlink" title="课时8:外键约束"></a>课时8:外键约束</h2><h2 id="课时9-一对一关系"><a href="#课时9-一对一关系" class="headerlink" title="课时9:一对一关系"></a>课时9:一对一关系</h2><h2 id="课时10-多对多关系"><a href="#课时10-多对多关系" class="headerlink" title="课时10:多对多关系"></a>课时10:多对多关系</h2><h2 id="课时11-合并结果集"><a href="#课时11-合并结果集" class="headerlink" title="课时11:合并结果集"></a>课时11:合并结果集</h2><h2 id="课时12-连接查询之内连接-方言"><a href="#课时12-连接查询之内连接-方言" class="headerlink" title="课时12:连接查询之内连接(方言)"></a>课时12:连接查询之内连接(方言)</h2><h2 id="课时13-连接查询之内连接-标签和自然"><a href="#课时13-连接查询之内连接-标签和自然" class="headerlink" title="课时13:连接查询之内连接(标签和自然)"></a>课时13:连接查询之内连接(标签和自然)</h2><h2 id="课时14-连接查询之外连接"><a href="#课时14-连接查询之外连接" class="headerlink" title="课时14:连接查询之外连接"></a>课时14:连接查询之外连接</h2><h2 id="课时15-子查询"><a href="#课时15-子查询" class="headerlink" title="课时15:子查询"></a>课时15:子查询</h2><h2 id="课时16-多表查询练习第1题"><a href="#课时16-多表查询练习第1题" class="headerlink" title="课时16:多表查询练习第1题"></a>课时16:多表查询练习第1题</h2><h2 id="课时17-多表查询练习第2题"><a href="#课时17-多表查询练习第2题" class="headerlink" title="课时17:多表查询练习第2题"></a>课时17:多表查询练习第2题</h2><h2 id="课时18-多表查询练习第4题"><a href="#课时18-多表查询练习第4题" class="headerlink" title="课时18:多表查询练习第4题"></a>课时18:多表查询练习第4题</h2><h2 id="课时19-多表查询练习第5题"><a href="#课时19-多表查询练习第5题" class="headerlink" title="课时19:多表查询练习第5题"></a>课时19:多表查询练习第5题</h2><h2 id="课时20-多表查询练习第7题"><a href="#课时20-多表查询练习第7题" class="headerlink" title="课时20:多表查询练习第7题"></a>课时20:多表查询练习第7题</h2><h2 id="课时21-多表查询练习第8题"><a href="#课时21-多表查询练习第8题" class="headerlink" title="课时21:多表查询练习第8题"></a>课时21:多表查询练习第8题</h2><h2 id="课时22-多表查询练习第9题"><a href="#课时22-多表查询练习第9题" class="headerlink" title="课时22:多表查询练习第9题"></a>课时22:多表查询练习第9题</h2><h2 id="课时23-多表查询练习第10题"><a href="#课时23-多表查询练习第10题" class="headerlink" title="课时23:多表查询练习第10题"></a>课时23:多表查询练习第10题</h2><h2 id="课时24-多表查询练习第11题"><a href="#课时24-多表查询练习第11题" class="headerlink" title="课时24:多表查询练习第11题"></a>课时24:多表查询练习第11题</h2><h2 id="课时25-多表查询练习第13题"><a href="#课时25-多表查询练习第13题" class="headerlink" title="课时25: 多表查询练习第13题"></a>课时25: 多表查询练习第13题</h2><h1 id="系列三-JDBC数据库开发入门"><a href="#系列三-JDBC数据库开发入门" class="headerlink" title="系列三:JDBC数据库开发入门"></a>系列三:JDBC数据库开发入门</h1><h2 id="课时1-什么是JDBC"><a href="#课时1-什么是JDBC" class="headerlink" title="课时1:什么是JDBC"></a>课时1:什么是JDBC</h2><h2 id="课时2-JDBC的原理"><a href="#课时2-JDBC的原理" class="headerlink" title="课时2:JDBC的原理"></a>课时2:JDBC的原理</h2><h2 id="课时3-JDBC完成增删改查"><a href="#课时3-JDBC完成增删改查" class="headerlink" title="课时3:JDBC完成增删改查"></a>课时3:JDBC完成增删改查</h2><h2 id="课时4-JDBC之代码规范化"><a href="#课时4-JDBC之代码规范化" class="headerlink" title="课时4:JDBC之代码规范化"></a>课时4:JDBC之代码规范化</h2><h2 id="课时5-结果集光标与元数据"><a href="#课时5-结果集光标与元数据" class="headerlink" title="课时5:结果集光标与元数据"></a>课时5:结果集光标与元数据</h2><h2 id="课时6-结果集的特性-是否可滚动，是否敏感，是否可更新"><a href="#课时6-结果集的特性-是否可滚动，是否敏感，是否可更新" class="headerlink" title="课时6:结果集的特性(是否可滚动，是否敏感，是否可更新)"></a>课时6:结果集的特性(是否可滚动，是否敏感，是否可更新)</h2><h2 id="课时7-PreparedStatement的用法"><a href="#课时7-PreparedStatement的用法" class="headerlink" title="课时7:PreparedStatement的用法"></a>课时7:PreparedStatement的用法</h2><h2 id="课时8-预处理的原理"><a href="#课时8-预处理的原理" class="headerlink" title="课时8:预处理的原理"></a>课时8:预处理的原理</h2><h2 id="课时9-mysql的预编译功能默认是关闭的"><a href="#课时9-mysql的预编译功能默认是关闭的" class="headerlink" title="课时9:mysql的预编译功能默认是关闭的"></a>课时9:mysql的预编译功能默认是关闭的</h2><h2 id="课时10-JdbcUtils1-0小工具"><a href="#课时10-JdbcUtils1-0小工具" class="headerlink" title="课时10:JdbcUtils1.0小工具"></a>课时10:JdbcUtils1.0小工具</h2><h2 id="课时11-面向接口编程"><a href="#课时11-面向接口编程" class="headerlink" title="课时11:面向接口编程"></a>课时11:面向接口编程</h2><h2 id="课时12-修改day14的登录注册案例，其中dao层为jdbc"><a href="#课时12-修改day14的登录注册案例，其中dao层为jdbc" class="headerlink" title="课时12:修改day14的登录注册案例，其中dao层为jdbc"></a>课时12:修改day14的登录注册案例，其中dao层为jdbc</h2><h2 id="课时13-util包下的Data与sql包下的时间类型之间的转换"><a href="#课时13-util包下的Data与sql包下的时间类型之间的转换" class="headerlink" title="课时13:util包下的Data与sql包下的时间类型之间的转换"></a>课时13:util包下的Data与sql包下的时间类型之间的转换</h2><h2 id="课时14-大数据"><a href="#课时14-大数据" class="headerlink" title="课时14:大数据"></a>课时14:大数据</h2><h2 id="课时15-批处理"><a href="#课时15-批处理" class="headerlink" title="课时15:批处理"></a>课时15:批处理</h2><h1 id="系列四-JDBC数据库开发进阶"><a href="#系列四-JDBC数据库开发进阶" class="headerlink" title="系列四:JDBC数据库开发进阶"></a>系列四:JDBC数据库开发进阶</h1><h2 id="课时1-事务的四大特性-ACID"><a href="#课时1-事务的四大特性-ACID" class="headerlink" title="课时1:事务的四大特性(ACID)"></a>课时1:事务的四大特性(ACID)</h2><h2 id="课时2-Mysql开启和关闭事务"><a href="#课时2-Mysql开启和关闭事务" class="headerlink" title="课时2:Mysql开启和关闭事务"></a>课时2:Mysql开启和关闭事务</h2><h2 id="课时3-JDBC中完成事务处理"><a href="#课时3-JDBC中完成事务处理" class="headerlink" title="课时3:JDBC中完成事务处理"></a>课时3:JDBC中完成事务处理</h2><h2 id="课时4-事务的隔离级别"><a href="#课时4-事务的隔离级别" class="headerlink" title="课时4:事务的隔离级别"></a>课时4:事务的隔离级别</h2><h2 id="课时5-dbcp连接池"><a href="#课时5-dbcp连接池" class="headerlink" title="课时5:dbcp连接池"></a>课时5:dbcp连接池</h2><h2 id="课时6-装饰者模式"><a href="#课时6-装饰者模式" class="headerlink" title="课时6:装饰者模式"></a>课时6:装饰者模式</h2><h2 id="课时7-c3p0连接池的基本使用方式"><a href="#课时7-c3p0连接池的基本使用方式" class="headerlink" title="课时7:c3p0连接池的基本使用方式"></a>课时7:c3p0连接池的基本使用方式</h2><h2 id="课时8-c3p0连接的配置文件使用"><a href="#课时8-c3p0连接的配置文件使用" class="headerlink" title="课时8:c3p0连接的配置文件使用"></a>课时8:c3p0连接的配置文件使用</h2><h2 id="课时9-JdbcUtils"><a href="#课时9-JdbcUtils" class="headerlink" title="课时9:JdbcUtils"></a>课时9:JdbcUtils</h2><h2 id="课时10-JdbcUtils小工具"><a href="#课时10-JdbcUtils小工具" class="headerlink" title="课时10:JdbcUtils小工具"></a>课时10:JdbcUtils小工具</h2><h2 id="课时11-JNDI配置"><a href="#课时11-JNDI配置" class="headerlink" title="课时11:JNDI配置"></a>课时11:JNDI配置</h2><h2 id="课时12-ThreadLocal"><a href="#课时12-ThreadLocal" class="headerlink" title="课时12:ThreadLocal"></a>课时12:ThreadLocal</h2><h2 id="课时13-dbUtils原理"><a href="#课时13-dbUtils原理" class="headerlink" title="课时13:dbUtils原理"></a>课时13:dbUtils原理</h2><h2 id="课时14-dbUtils结果集处理器介绍"><a href="#课时14-dbUtils结果集处理器介绍" class="headerlink" title="课时14:dbUtils结果集处理器介绍"></a>课时14:dbUtils结果集处理器介绍</h2><h2 id="课时15-编写TxQueryRunner配合JdbcUtils来处理事务"><a href="#课时15-编写TxQueryRunner配合JdbcUtils来处理事务" class="headerlink" title="课时15:编写TxQueryRunner配合JdbcUtils来处理事务"></a>课时15:编写TxQueryRunner配合JdbcUtils来处理事务</h2><h2 id="课时16-JdbcUtils处理多线程并发访问问题"><a href="#课时16-JdbcUtils处理多线程并发访问问题" class="headerlink" title="课时16:JdbcUtils处理多线程并发访问问题"></a>课时16:JdbcUtils处理多线程并发访问问题</h2><h2 id="课时17-分页准备工作"><a href="#课时17-分页准备工作" class="headerlink" title="课时17:分页准备工作"></a>课时17:分页准备工作</h2><h2 id="课时18-处理分页各层分工"><a href="#课时18-处理分页各层分工" class="headerlink" title="课时18:处理分页各层分工"></a>课时18:处理分页各层分工</h2><h2 id="课时19-分页处理第一阶段完成"><a href="#课时19-分页处理第一阶段完成" class="headerlink" title="课时19:分页处理第一阶段完成"></a>课时19:分页处理第一阶段完成</h2><h2 id="课时20-分页之页面页码列表计算"><a href="#课时20-分页之页面页码列表计算" class="headerlink" title="课时20:分页之页面页码列表计算"></a>课时20:分页之页面页码列表计算</h2><h2 id="课时21-分页之查询条件丢失问题"><a href="#课时21-分页之查询条件丢失问题" class="headerlink" title="课时21:分页之查询条件丢失问题"></a>课时21:分页之查询条件丢失问题</h2><h2 id="课时22-分页之查询条件保存到PageBean的url中"><a href="#课时22-分页之查询条件保存到PageBean的url中" class="headerlink" title="课时22:分页之查询条件保存到PageBean的url中"></a>课时22:分页之查询条件保存到PageBean的url中</h2>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/06/Pod%E4%B8%AD%E6%8C%82%E8%BD%BD%E5%8D%95%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E6%96%B9%E6%B3%95/" rel="next" title="Pod中挂载单个文件的方法">
+                <i class="fa fa-chevron-left"></i> Pod中挂载单个文件的方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/02/18/%E5%A4%AE%E8%A1%8C%E9%99%8D%E6%81%AF-2-17/" rel="prev" title="央行降息_2.17">
+                央行降息_2.17 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/hello.jpeg"
+                alt="ZhouJinliang" />
+            
+              <p class="site-author-name" itemprop="name">ZhouJinliang</p>
+              <p class="site-description motion-element" itemprop="description">devops k8s python java</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/starzjl" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#系列一-数据库及SQL-MySQL基础"><span class="nav-number">1.</span> <span class="nav-text">系列一:数据库及SQL/MySQL基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#课时1-数据库概述"><span class="nav-number">1.1.</span> <span class="nav-text">课时1:数据库概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时2-Java应用与数据库的关系"><span class="nav-number">1.2.</span> <span class="nav-text">课时2:Java应用与数据库的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时3-安装Mysql"><span class="nav-number">1.3.</span> <span class="nav-text">课时3:安装Mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时4-删除Mysql"><span class="nav-number">1.4.</span> <span class="nav-text">课时4:删除Mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时5-Mysql安装路径以及配置信息"><span class="nav-number">1.5.</span> <span class="nav-text">课时5:Mysql安装路径以及配置信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时6-开启关闭服务器以及登录退出客户端"><span class="nav-number">1.6.</span> <span class="nav-text">课时6:开启关闭服务器以及登录退出客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时7-SQL语言的概述"><span class="nav-number">1.7.</span> <span class="nav-text">课时7:SQL语言的概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时8-DDL-数据定义语言-之操作数据库"><span class="nav-number">1.8.</span> <span class="nav-text">课时8:DDL(数据定义语言)之操作数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时9-数据类型介绍1"><span class="nav-number">1.9.</span> <span class="nav-text">课时9:数据类型介绍1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时10-数据类型介绍2"><span class="nav-number">1.10.</span> <span class="nav-text">课时10:数据类型介绍2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时11-DDL-数据定义语言-之操作表"><span class="nav-number">1.11.</span> <span class="nav-text">课时11:DDL(数据定义语言)之操作表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时12-DML-数据操作语言-之INSERT"><span class="nav-number">1.12.</span> <span class="nav-text">课时12:DML(数据操作语言)之INSERT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时13-DML-数据操作语言-之修改记录"><span class="nav-number">1.13.</span> <span class="nav-text">课时13:DML(数据操作语言)之修改记录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时14-DML-数据操作语言-之DELETE"><span class="nav-number">1.14.</span> <span class="nav-text">课时14:DML(数据操作语言)之DELETE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时15-DCL-数据控制语言"><span class="nav-number">1.15.</span> <span class="nav-text">课时15:DCL(数据控制语言)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时16-DQL-数据查询语言-之基础查询之列控制"><span class="nav-number">1.16.</span> <span class="nav-text">课时16:DQL(数据查询语言)之基础查询之列控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时17-DQL-数据查询语言-之条件查询"><span class="nav-number">1.17.</span> <span class="nav-text">课时17:DQL(数据查询语言)之条件查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时18-DQL-数据查询语言-之模糊查询"><span class="nav-number">1.18.</span> <span class="nav-text">课时18:DQL(数据查询语言)之模糊查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时19-DQL-数据查询语言-之排序"><span class="nav-number">1.19.</span> <span class="nav-text">课时19:DQL(数据查询语言)之排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时20-DQL-数据查询语言-之聚合函数"><span class="nav-number">1.20.</span> <span class="nav-text">课时20:DQL(数据查询语言)之聚合函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时21-DQL-数据查询语言-之分组查询"><span class="nav-number">1.21.</span> <span class="nav-text">课时21:DQL(数据查询语言)之分组查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时22-DQL-数据查询语言-之limit方言"><span class="nav-number">1.22.</span> <span class="nav-text">课时22:DQL(数据查询语言)之limit方言</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#系列二-SQL进阶及查询练习"><span class="nav-number">2.</span> <span class="nav-text">系列二:SQL进阶及查询练习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#课时1-单表的查询练习"><span class="nav-number">2.1.</span> <span class="nav-text">课时1:单表的查询练习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时2-mysql编码问题"><span class="nav-number">2.2.</span> <span class="nav-text">课时2:mysql编码问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时3-mysql备份与恢复数据库"><span class="nav-number">2.3.</span> <span class="nav-text">课时3:mysql备份与恢复数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时4-约束之主键约束"><span class="nav-number">2.4.</span> <span class="nav-text">课时4:约束之主键约束</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时5-主键自增长"><span class="nav-number">2.5.</span> <span class="nav-text">课时5:主键自增长</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时6-非空和唯一约束"><span class="nav-number">2.6.</span> <span class="nav-text">课时6:非空和唯一约束</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时7-概述模型，对象模型，关系模型"><span class="nav-number">2.7.</span> <span class="nav-text">课时7:概述模型，对象模型，关系模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时8-外键约束"><span class="nav-number">2.8.</span> <span class="nav-text">课时8:外键约束</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时9-一对一关系"><span class="nav-number">2.9.</span> <span class="nav-text">课时9:一对一关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时10-多对多关系"><span class="nav-number">2.10.</span> <span class="nav-text">课时10:多对多关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时11-合并结果集"><span class="nav-number">2.11.</span> <span class="nav-text">课时11:合并结果集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时12-连接查询之内连接-方言"><span class="nav-number">2.12.</span> <span class="nav-text">课时12:连接查询之内连接(方言)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时13-连接查询之内连接-标签和自然"><span class="nav-number">2.13.</span> <span class="nav-text">课时13:连接查询之内连接(标签和自然)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时14-连接查询之外连接"><span class="nav-number">2.14.</span> <span class="nav-text">课时14:连接查询之外连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时15-子查询"><span class="nav-number">2.15.</span> <span class="nav-text">课时15:子查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时16-多表查询练习第1题"><span class="nav-number">2.16.</span> <span class="nav-text">课时16:多表查询练习第1题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时17-多表查询练习第2题"><span class="nav-number">2.17.</span> <span class="nav-text">课时17:多表查询练习第2题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时18-多表查询练习第4题"><span class="nav-number">2.18.</span> <span class="nav-text">课时18:多表查询练习第4题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时19-多表查询练习第5题"><span class="nav-number">2.19.</span> <span class="nav-text">课时19:多表查询练习第5题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时20-多表查询练习第7题"><span class="nav-number">2.20.</span> <span class="nav-text">课时20:多表查询练习第7题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时21-多表查询练习第8题"><span class="nav-number">2.21.</span> <span class="nav-text">课时21:多表查询练习第8题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时22-多表查询练习第9题"><span class="nav-number">2.22.</span> <span class="nav-text">课时22:多表查询练习第9题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时23-多表查询练习第10题"><span class="nav-number">2.23.</span> <span class="nav-text">课时23:多表查询练习第10题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时24-多表查询练习第11题"><span class="nav-number">2.24.</span> <span class="nav-text">课时24:多表查询练习第11题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时25-多表查询练习第13题"><span class="nav-number">2.25.</span> <span class="nav-text">课时25: 多表查询练习第13题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#系列三-JDBC数据库开发入门"><span class="nav-number">3.</span> <span class="nav-text">系列三:JDBC数据库开发入门</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#课时1-什么是JDBC"><span class="nav-number">3.1.</span> <span class="nav-text">课时1:什么是JDBC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时2-JDBC的原理"><span class="nav-number">3.2.</span> <span class="nav-text">课时2:JDBC的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时3-JDBC完成增删改查"><span class="nav-number">3.3.</span> <span class="nav-text">课时3:JDBC完成增删改查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时4-JDBC之代码规范化"><span class="nav-number">3.4.</span> <span class="nav-text">课时4:JDBC之代码规范化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时5-结果集光标与元数据"><span class="nav-number">3.5.</span> <span class="nav-text">课时5:结果集光标与元数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时6-结果集的特性-是否可滚动，是否敏感，是否可更新"><span class="nav-number">3.6.</span> <span class="nav-text">课时6:结果集的特性(是否可滚动，是否敏感，是否可更新)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时7-PreparedStatement的用法"><span class="nav-number">3.7.</span> <span class="nav-text">课时7:PreparedStatement的用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时8-预处理的原理"><span class="nav-number">3.8.</span> <span class="nav-text">课时8:预处理的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时9-mysql的预编译功能默认是关闭的"><span class="nav-number">3.9.</span> <span class="nav-text">课时9:mysql的预编译功能默认是关闭的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时10-JdbcUtils1-0小工具"><span class="nav-number">3.10.</span> <span class="nav-text">课时10:JdbcUtils1.0小工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时11-面向接口编程"><span class="nav-number">3.11.</span> <span class="nav-text">课时11:面向接口编程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时12-修改day14的登录注册案例，其中dao层为jdbc"><span class="nav-number">3.12.</span> <span class="nav-text">课时12:修改day14的登录注册案例，其中dao层为jdbc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时13-util包下的Data与sql包下的时间类型之间的转换"><span class="nav-number">3.13.</span> <span class="nav-text">课时13:util包下的Data与sql包下的时间类型之间的转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时14-大数据"><span class="nav-number">3.14.</span> <span class="nav-text">课时14:大数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时15-批处理"><span class="nav-number">3.15.</span> <span class="nav-text">课时15:批处理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#系列四-JDBC数据库开发进阶"><span class="nav-number">4.</span> <span class="nav-text">系列四:JDBC数据库开发进阶</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#课时1-事务的四大特性-ACID"><span class="nav-number">4.1.</span> <span class="nav-text">课时1:事务的四大特性(ACID)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时2-Mysql开启和关闭事务"><span class="nav-number">4.2.</span> <span class="nav-text">课时2:Mysql开启和关闭事务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时3-JDBC中完成事务处理"><span class="nav-number">4.3.</span> <span class="nav-text">课时3:JDBC中完成事务处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时4-事务的隔离级别"><span class="nav-number">4.4.</span> <span class="nav-text">课时4:事务的隔离级别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时5-dbcp连接池"><span class="nav-number">4.5.</span> <span class="nav-text">课时5:dbcp连接池</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时6-装饰者模式"><span class="nav-number">4.6.</span> <span class="nav-text">课时6:装饰者模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时7-c3p0连接池的基本使用方式"><span class="nav-number">4.7.</span> <span class="nav-text">课时7:c3p0连接池的基本使用方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时8-c3p0连接的配置文件使用"><span class="nav-number">4.8.</span> <span class="nav-text">课时8:c3p0连接的配置文件使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时9-JdbcUtils"><span class="nav-number">4.9.</span> <span class="nav-text">课时9:JdbcUtils</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时10-JdbcUtils小工具"><span class="nav-number">4.10.</span> <span class="nav-text">课时10:JdbcUtils小工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时11-JNDI配置"><span class="nav-number">4.11.</span> <span class="nav-text">课时11:JNDI配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时12-ThreadLocal"><span class="nav-number">4.12.</span> <span class="nav-text">课时12:ThreadLocal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时13-dbUtils原理"><span class="nav-number">4.13.</span> <span class="nav-text">课时13:dbUtils原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时14-dbUtils结果集处理器介绍"><span class="nav-number">4.14.</span> <span class="nav-text">课时14:dbUtils结果集处理器介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时15-编写TxQueryRunner配合JdbcUtils来处理事务"><span class="nav-number">4.15.</span> <span class="nav-text">课时15:编写TxQueryRunner配合JdbcUtils来处理事务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时16-JdbcUtils处理多线程并发访问问题"><span class="nav-number">4.16.</span> <span class="nav-text">课时16:JdbcUtils处理多线程并发访问问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时17-分页准备工作"><span class="nav-number">4.17.</span> <span class="nav-text">课时17:分页准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时18-处理分页各层分工"><span class="nav-number">4.18.</span> <span class="nav-text">课时18:处理分页各层分工</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时19-分页处理第一阶段完成"><span class="nav-number">4.19.</span> <span class="nav-text">课时19:分页处理第一阶段完成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时20-分页之页面页码列表计算"><span class="nav-number">4.20.</span> <span class="nav-text">课时20:分页之页面页码列表计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时21-分页之查询条件丢失问题"><span class="nav-number">4.21.</span> <span class="nav-text">课时21:分页之查询条件丢失问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课时22-分页之查询条件保存到PageBean的url中"><span class="nav-number">4.22.</span> <span class="nav-text">课时22:分页之查询条件保存到PageBean的url中</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZhouJinliang</span>
+
+  
+</div>
+
+
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
