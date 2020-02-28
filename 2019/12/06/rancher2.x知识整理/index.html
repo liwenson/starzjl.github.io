@@ -89,16 +89,16 @@
 <meta property="og:site_name" content="落魄de少爷">
 <meta property="og:description" content="rancher2.x 快速创建集群 使用 Docker run 命令部署单节点 Rancher server 必要前置条件 OS with docker version CentOS7.6_x86-64 Docker 18.09.x      docker run -d -p 80:80 -p 443:443  rancher&#x2F;rancher:v2.3.3doker logs 查看启动日志可以看到">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https:&#x2F;&#x2F;zjl.ztocwst.com&#x2F;static&#x2F;images&#x2F;rancher01.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;zjl.ztocwst.com&#x2F;static&#x2F;images&#x2F;rancher02.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;zjl.ztocwst.com&#x2F;static&#x2F;images&#x2F;rancher03.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;zjl.ztocwst.com&#x2F;static&#x2F;images&#x2F;rancher04.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;zjl.ztocwst.com&#x2F;static&#x2F;images&#x2F;rancher05.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;zjl.ztocwst.com&#x2F;static&#x2F;images&#x2F;rancher06.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;zjl.ztocwst.com&#x2F;static&#x2F;images&#x2F;rancherPipeline运作原理.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;img.zjl.pub&#x2F;static&#x2F;images&#x2F;rancher01.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;img.zjl.pub&#x2F;static&#x2F;images&#x2F;rancher02.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;img.zjl.pub&#x2F;static&#x2F;images&#x2F;rancher03.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;img.zjl.pub&#x2F;static&#x2F;images&#x2F;rancher04.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;img.zjl.pub&#x2F;static&#x2F;images&#x2F;rancher05.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;img.zjl.pub&#x2F;static&#x2F;images&#x2F;rancher06.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;img.zjl.pub&#x2F;static&#x2F;images&#x2F;rancherPipeline运作原理.png">
 <meta property="og:updated_time" content="2020-01-08T05:52:38.124Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;zjl.ztocwst.com&#x2F;static&#x2F;images&#x2F;rancher01.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;img.zjl.pub&#x2F;static&#x2F;images&#x2F;rancher01.png">
 
 
 
@@ -350,16 +350,16 @@
 </li>
 </ul>
 <p>docker run -d -p 80:80 -p 443:443  rancher/rancher:v2.3.3<br>doker logs 查看启动日志可以看到 rancher 在本地会去创建 CRD 的一些资源，然后在 rancher本身里面的话就会有包含一个微型的一个k8s api server 和一个 etcd 的进程，这是单节点跑的一个情况。</p>
-<h2 id="导入已有-K8S-集群"><a href="#导入已有-K8S-集群" class="headerlink" title="导入已有 K8S 集群"></a>导入已有 K8S 集群</h2><img src="https://zjl.ztocwst.com/static/images/rancher01.png">
-<img src="https://zjl.ztocwst.com/static/images/rancher02.png">
-<img src="https://zjl.ztocwst.com/static/images/rancher03.png">
-<img src="https://zjl.ztocwst.com/static/images/rancher04.png">
+<h2 id="导入已有-K8S-集群"><a href="#导入已有-K8S-集群" class="headerlink" title="导入已有 K8S 集群"></a>导入已有 K8S 集群</h2><img src="http://img.zjl.pub/static/images/rancher01.png">
+<img src="http://img.zjl.pub/static/images/rancher02.png">
+<img src="http://img.zjl.pub/static/images/rancher03.png">
+<img src="http://img.zjl.pub/static/images/rancher04.png">
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl --insecure -sfL https://rancher.ops.com/v3/import/cfwbm2bdz6gcgxnkwvkshlqbxmwc96hbv4x6z8c4hhwnlntxx2dw28.yaml | kubectl apply -f -</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 
 <p>会创建 namespace , serviceaccount clusterrolebingding secret clusterrole deployment daemonse 这些 , 我们查看创建的结果：</p>
-<img src="https://zjl.ztocwst.com/static/images/rancher05.png">
-<img src="https://zjl.ztocwst.com/static/images/rancher06.png">
+<img src="http://img.zjl.pub/static/images/rancher05.png">
+<img src="http://img.zjl.pub/static/images/rancher06.png">
 
 <h1 id="企业如何构建CICD流水线"><a href="#企业如何构建CICD流水线" class="headerlink" title="企业如何构建CICD流水线"></a>企业如何构建CICD流水线</h1><p>Demo演示的内容  </p>
 <ul>
@@ -368,7 +368,7 @@
 <li>发布镜像到内置/远端仓库  </li>
 <li>部署应用  </li>
 <li>通过应用商店发布应用  </li>
-<li>流水线通知<img src="https://zjl.ztocwst.com/static/images/rancherPipeline运作原理.png">
+<li>流水线通知<img src="http://img.zjl.pub/static/images/rancherPipeline运作原理.png">
 
 
 
