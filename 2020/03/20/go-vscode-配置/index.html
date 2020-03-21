@@ -81,13 +81,13 @@
 
 
 
-<meta name="description" content="安装vscode  安装中文包      vscode-go 安装   gopls 安装  其他 vscode-go 插件安装   插件说明： https:&#x2F;&#x2F;github.com&#x2F;Microsoft&#x2F;vscode-go   gocode        : 官方说 使用gopls ，目前还没搞懂这玩意goimports     : go get -u golang.org&#x2F;x&#x2F;tools&#x2F;cmd">
+<meta name="description" content="安装vscode  安装中文包      vscode-go 安装   其他 vscode-go 插件安装   插件说明： https:&#x2F;&#x2F;github.com&#x2F;Microsoft&#x2F;vscode-go   插件代理：因为国内墙的问题   插件安装：     vscode MAC终端乱码问题">
 <meta name="keywords" content="devops k8s python java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vscode_go_配置">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;20&#x2F;go-vscode-%E9%85%8D%E7%BD%AE&#x2F;index.html">
 <meta property="og:site_name" content="落魄de少爷">
-<meta property="og:description" content="安装vscode  安装中文包      vscode-go 安装   gopls 安装  其他 vscode-go 插件安装   插件说明： https:&#x2F;&#x2F;github.com&#x2F;Microsoft&#x2F;vscode-go   gocode        : 官方说 使用gopls ，目前还没搞懂这玩意goimports     : go get -u golang.org&#x2F;x&#x2F;tools&#x2F;cmd">
+<meta property="og:description" content="安装vscode  安装中文包      vscode-go 安装   其他 vscode-go 插件安装   插件说明： https:&#x2F;&#x2F;github.com&#x2F;Microsoft&#x2F;vscode-go   插件代理：因为国内墙的问题   插件安装：     vscode MAC终端乱码问题">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http:&#x2F;&#x2F;img.zjl.pub&#x2F;static&#x2F;images&#x2F;vscode01.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;img.zjl.pub&#x2F;static&#x2F;images&#x2F;vscode02.png">
@@ -95,7 +95,12 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;img.zjl.pub&#x2F;static&#x2F;images&#x2F;vscode04.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;img.zjl.pub&#x2F;static&#x2F;images&#x2F;vscode05.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;img.zjl.pub&#x2F;static&#x2F;images&#x2F;vscode06.png">
-<meta property="og:updated_time" content="2020-03-21T07:43:28.168Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;img.zjl.pub&#x2F;static&#x2F;images&#x2F;vscode07.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;img.zjl.pub&#x2F;static&#x2F;images&#x2F;vscode08.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;img.zjl.pub&#x2F;static&#x2F;images&#x2F;vscode09.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;img.zjl.pub&#x2F;static&#x2F;images&#x2F;vscode10.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;img.zjl.pub&#x2F;static&#x2F;images&#x2F;vscode11.png">
+<meta property="og:updated_time" content="2020-03-21T10:38:38.723Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;img.zjl.pub&#x2F;static&#x2F;images&#x2F;vscode01.png">
 
@@ -349,8 +354,6 @@
 <li><p>vscode-go 安装</p>
 <img src="http://img.zjl.pub/static/images/vscode05.png">
 </li>
-<li><p>gopls 安装</p>
-</li>
 <li><p>其他 vscode-go 插件安装</p>
 </li>
 </ol>
@@ -358,8 +361,19 @@
 <p><a href="https://github.com/Microsoft/vscode-go" target="_blank" rel="noopener">https://github.com/Microsoft/vscode-go</a></p>
 <img src="http://img.zjl.pub/static/images/vscode06.png">
 
-<p>gocode        : 官方说 使用gopls ，目前还没搞懂这玩意<br>goimports     : go get -u golang.org/x/tools/cmd/goimports  (not needed if using language server)<br>goreturns     : go get -u github.com/sqs/goreturns(not needed if using language server)<br>godef         : go get -u github.com/rogpeppe/godef (not needed if using language server)<br>gogetdoc      : go get -u github.com/zmb3/gogetdoc  (not needed if using language server)<br>godoc         : (not needed if using language server)<br>megacheck     : 没看明白怎么安装<br>golangci-lint : 没看明白怎么安装<br>revive        : 没看明白怎么安装<br>gotype-live   : 没看明白怎么安装</p>
-<p>go-outline    : go get -u github.com/ramya-rao-a/go-outline<br>go-symbols    : go get -u github.com/newhook/go-symbols<br>gopkgs        : go get -u github.com/uudashr/gopkgs/cmd/gopkgs<br>golint        : go get -u golang.org/x/lint/golint<br>guru          : go get -u golang.org/x/tools/cmd/guru<br>gorename      : go get -u golang.org/x/tools/cmd/gorename<br>gomodifytags  : go get -u github.com/fatih/gomodifytags<br>goplay        : go get -u github.com/haya14busa/goplay<br>impl          : go get -u github.com/josharian/impl<br>gotests       : go get -u github.com/cweill/gotests/…<br>go-langserver : go get -u github.com/sourcegraph/go-langserver<br>fillstruct    : go get -u github.com/davidrjenni/reftools/cmd/fillstruct<br>dlv           : go get -u github.com/go-delve/delve/cmd/dlv</p>
+<p>插件代理：因为国内墙的问题</p>
+<img src="http://img.zjl.pub/static/images/vscode07.png">
+
+<p>插件安装：</p>
+<img src="http://img.zjl.pub/static/images/vscode08.png">
+<img src="http://img.zjl.pub/static/images/vscode09.png">
+
+<ol start="5">
+<li>vscode MAC终端乱码问题</li>
+</ol>
+<img src="http://img.zjl.pub/static/images/vscode10.png">
+<img src="http://img.zjl.pub/static/images/vscode11.png">
+
 
       
     </div>
