@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-21T03:12:16.000Z</updated>
+  <updated>2020-03-21T09:09:20.356Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,13 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>vscode_go_配置</title>
-    <link href="http://yoursite.com/2020/03/20/vscode-go-%E9%85%8D%E7%BD%AE/"/>
-    <id>http://yoursite.com/2020/03/20/vscode-go-%E9%85%8D%E7%BD%AE/</id>
-    <published>2020-03-20T13:25:00.000Z</published>
-    <updated>2020-03-21T03:12:16.000Z</updated>
+    <title>go</title>
+    <link href="http://yoursite.com/2020/03/21/go/"/>
+    <id>http://yoursite.com/2020/03/21/go/</id>
+    <published>2020-03-21T07:44:54.000Z</published>
+    <updated>2020-03-21T09:09:20.356Z</updated>
     
-    <content type="html"><![CDATA[<ol><li><p>安装vscode</p></li><li><p>插件地址</p></li></ol><p>vscode go 插件安装地址： github go 官网  –  wiki – 搜索IDE – 找到 Visual Studio Code – 里面就有插件的安装地址</p><p><a href="https://github.com/Microsoft/vscode-go" target="_blank" rel="noopener">https://github.com/Microsoft/vscode-go</a></p><ol start="3"><li>安装插件</li></ol><p>几个概念：</p><p>什么是 go mod<br>什么是 gopls<br>什么是 language server</p><p>3.1 安装中文包</p><img src="http://img.zjl.pub/static/images/vscode01.png"><img src="http://img.zjl.pub/static/images/vscode02.png"><img src="http://img.zjl.pub/static/images/vscode03.png"><img src="http://img.zjl.pub/static/images/vscode04.png"><p>3.2 golang工具安装</p><img src="http://img.zjl.pub/static/images/vscode05.png"><p>3.3 其他工具安装</p><p>国内在访问 go 官网的时候，网络会有限制，可以手工安装。</p><p>手动安装方法：</p><p><a href="https://github.com/Microsoft/vscode-go/wiki" target="_blank" rel="noopener">https://github.com/Microsoft/vscode-go/wiki</a></p><img src="http://img.zjl.pub/static/images/vscode06.png"><p>gocode        : 官方说 使用gopls ，目前还没搞懂这玩意<br>go-outline    : go get -u github.com/ramya-rao-a/go-outline<br>go-symbols    : go get -u github.com/newhook/go-symbols<br>gopkgs        : go get -u github.com/uudashr/gopkgs/cmd/gopkgs<br>guru          : go get -u golang.org/x/tools/cmd/guru<br>gorename      : go get -u golang.org/x/tools/cmd/gorename<br>goreturns     : go get -u github.com/sqs/goreturns  (not needed if using language server)<br>goimports     : go get -u golang.org/x/tools/cmd/goimports  (not needed if using language server)<br>godef         : go get -u github.com/rogpeppe/godef (not needed if using language server)<br>gogetdoc      : go get -u github.com/zmb3/gogetdoc  (not needed if using language server) 官方说vscode已经支持，那是不是可以不用安装了？<br>godoc         : (not needed if using language server)<br>golint        : go get -u golang.org/x/lint/golint<br>megacheck     : 没看明白怎么安装<br>golangci-lint : 没看明白怎么安装<br>revive        : 没看明白怎么安装<br>dlv           : 没看明白怎么安装<br>gomodifytags  : go get -u github.com/fatih/gomodifytags<br>goplay        : go get -u github.com/haya14busa/goplay<br>impl          : go get -u github.com/josharian/impl<br>gotype-live   : 没看明白怎么安装<br>gotests       : go get -u github.com/cweill/gotests/…<br>go-langserver : go get -u github.com/sourcegraph/go-langserver<br>fillstruct    : go get -u github.com/davidrjenni/reftools/cmd/fillstruct</p>]]></content>
+    <content type="html"><![CDATA[<p>第一步：申明一个包名</p><p>go语言要求每个源文件文件开头第一行必须有一个package申明它所属的包。</p><p>第二步：import 一个包</p><p>第三步：定义一个 func 函数</p><p>代码示例：</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">fmt.Println(<span class="string">"Hello World !"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;第一步：申明一个包名&lt;/p&gt;
+&lt;p&gt;go语言要求每个源文件文件开头第一行必须有一个package申明它所属的包。&lt;/p&gt;
+&lt;p&gt;第二步：import 一个包&lt;/p&gt;
+&lt;p&gt;第三步：定义一个 func 函数&lt;/p&gt;
+&lt;p&gt;代码示例：&lt;/p&gt;
+&lt;figure class=&quot;hi
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>vscode_go_配置</title>
+    <link href="http://yoursite.com/2020/03/20/go-vscode-%E9%85%8D%E7%BD%AE/"/>
+    <id>http://yoursite.com/2020/03/20/go-vscode-%E9%85%8D%E7%BD%AE/</id>
+    <published>2020-03-20T13:25:00.000Z</published>
+    <updated>2020-03-21T07:43:28.168Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>安装vscode</p></li><li><p>安装中文包</p><img src="http://img.zjl.pub/static/images/vscode01.png"><img src="http://img.zjl.pub/static/images/vscode02.png"><img src="http://img.zjl.pub/static/images/vscode03.png"><img src="http://img.zjl.pub/static/images/vscode04.png"></li><li><p>vscode-go 安装</p><img src="http://img.zjl.pub/static/images/vscode05.png"></li><li><p>gopls 安装</p></li><li><p>其他 vscode-go 插件安装</p></li></ol><p>插件说明：</p><p><a href="https://github.com/Microsoft/vscode-go" target="_blank" rel="noopener">https://github.com/Microsoft/vscode-go</a></p><img src="http://img.zjl.pub/static/images/vscode06.png"><p>gocode        : 官方说 使用gopls ，目前还没搞懂这玩意<br>goimports     : go get -u golang.org/x/tools/cmd/goimports  (not needed if using language server)<br>goreturns     : go get -u github.com/sqs/goreturns(not needed if using language server)<br>godef         : go get -u github.com/rogpeppe/godef (not needed if using language server)<br>gogetdoc      : go get -u github.com/zmb3/gogetdoc  (not needed if using language server)<br>godoc         : (not needed if using language server)<br>megacheck     : 没看明白怎么安装<br>golangci-lint : 没看明白怎么安装<br>revive        : 没看明白怎么安装<br>gotype-live   : 没看明白怎么安装</p><p>go-outline    : go get -u github.com/ramya-rao-a/go-outline<br>go-symbols    : go get -u github.com/newhook/go-symbols<br>gopkgs        : go get -u github.com/uudashr/gopkgs/cmd/gopkgs<br>golint        : go get -u golang.org/x/lint/golint<br>guru          : go get -u golang.org/x/tools/cmd/guru<br>gorename      : go get -u golang.org/x/tools/cmd/gorename<br>gomodifytags  : go get -u github.com/fatih/gomodifytags<br>goplay        : go get -u github.com/haya14busa/goplay<br>impl          : go get -u github.com/josharian/impl<br>gotests       : go get -u github.com/cweill/gotests/…<br>go-langserver : go get -u github.com/sourcegraph/go-langserver<br>fillstruct    : go get -u github.com/davidrjenni/reftools/cmd/fillstruct<br>dlv           : go get -u github.com/go-delve/delve/cmd/dlv</p>]]></content>
     
     <summary type="html">
     
@@ -32,10 +59,9 @@
         &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;安装vscode&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;插件地址&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;vscode go 插件安装地址： github go 官网  –  wiki – 搜索IDE – 找到 Visual Studio Code – 里面就有
+&lt;li&gt;&lt;p&gt;安装中文包&lt;/p&gt;
+&lt;img src=&quot;http://img.zjl.pub/static/images/vscode01.png&quot;&gt;
+&lt;img src=&quot;http://img.zjl.pub/stati
       
     
     </summary>
