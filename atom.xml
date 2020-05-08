@@ -47,9 +47,9 @@
     <link href="http://yoursite.com/2020/05/03/go%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/"/>
     <id>http://yoursite.com/2020/05/03/go%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/</id>
     <published>2020-05-02T23:38:02.000Z</published>
-    <updated>2020-05-08T23:32:53.895Z</updated>
+    <updated>2020-05-08T23:58:38.239Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Day01-20200328"><a href="#Day01-20200328" class="headerlink" title="Day01 - 20200328"></a>Day01 - 20200328</h1><h1 id="Day02-20200411"><a href="#Day02-20200411" class="headerlink" title="Day02 - 20200411"></a>Day02 - 20200411</h1><h1 id="Day03-20200418"><a href="#Day03-20200418" class="headerlink" title="Day03 - 20200418"></a>Day03 - 20200418</h1><h1 id="Day04-20200425"><a href="#Day04-20200425" class="headerlink" title="Day04 - 20200425"></a>Day04 - 20200425</h1><h1 id="Day05-20200510"><a href="#Day05-20200510" class="headerlink" title="Day05 - 20200510"></a>Day05 - 20200510</h1>]]></content>
+    <content type="html"><![CDATA[<h1 id="Day01-20200328"><a href="#Day01-20200328" class="headerlink" title="Day01 - 20200328"></a>Day01 - 20200328</h1><h1 id="Day02-20200411"><a href="#Day02-20200411" class="headerlink" title="Day02 - 20200411"></a>Day02 - 20200411</h1><h1 id="Go语言中的函数"><a href="#Go语言中的函数" class="headerlink" title="Go语言中的函数"></a>Go语言中的函数</h1><h2 id="函数定义"><a href="#函数定义" class="headerlink" title="函数定义"></a>函数定义</h2><ul><li>无参无返回值<pre><code class="go"><span class="function"><span class="keyword">func</span> <span class="title">sayHello</span><span class="params">()</span></span>{  fmt.Println(<span class="string">"Hello World"</span>)}</code></pre></li></ul><h1 id="Day04-20200425"><a href="#Day04-20200425" class="headerlink" title="Day04 - 20200425"></a>Day04 - 20200425</h1><h1 id="Day05-20200510"><a href="#Day05-20200510" class="headerlink" title="Day05 - 20200510"></a>Day05 - 20200510</h1>]]></content>
     
     <summary type="html">
     
