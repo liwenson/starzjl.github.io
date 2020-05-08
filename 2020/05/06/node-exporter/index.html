@@ -81,15 +81,15 @@
 
 
 
-<meta name="description" content="Redisdocker-compose.yml: 1234567891011121314---version: &amp;apos;3&amp;apos;services:  redis:    image: redis:4.0.13    container_name: redis    restart: always    command: redis-server &#x2F;usr&#x2F;local&#x2F;etc&#x2F;redis&#x2F;redis.conf">
+<meta name="description" content="CPU的使用率 = 所有非空闲状态的CPU使用时间总和 &#x2F; 所有状态CPU时间的总和 上面的公式需要将所有的项加在一起比较麻烦，比如用户态，内核态，io等待  将上面的公式简化下为： 100% - （idle &#x2F; 总时间） 那么要算一分钟平均使用率呢？ node_exporter 返回的数据类型 == 》 counter 类型数据 （CPU底层是时间的累积） 函数 increase()  incr">
 <meta name="keywords" content="devops k8s python java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="常用的docker-compose文件">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;03&#x2F;%E5%B8%B8%E7%94%A8%E7%9A%84docker-compose%E6%96%87%E4%BB%B6&#x2F;index.html">
+<meta property="og:title" content="node_exporter">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;05&#x2F;06&#x2F;node-exporter&#x2F;index.html">
 <meta property="og:site_name" content="落魄de少爷">
-<meta property="og:description" content="Redisdocker-compose.yml: 1234567891011121314---version: &amp;apos;3&amp;apos;services:  redis:    image: redis:4.0.13    container_name: redis    restart: always    command: redis-server &#x2F;usr&#x2F;local&#x2F;etc&#x2F;redis&#x2F;redis.conf">
+<meta property="og:description" content="CPU的使用率 = 所有非空闲状态的CPU使用时间总和 &#x2F; 所有状态CPU时间的总和 上面的公式需要将所有的项加在一起比较麻烦，比如用户态，内核态，io等待  将上面的公式简化下为： 100% - （idle &#x2F; 总时间） 那么要算一分钟平均使用率呢？ node_exporter 返回的数据类型 == 》 counter 类型数据 （CPU底层是时间的累积） 函数 increase()  incr">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-03T04:25:15.267Z">
+<meta property="og:updated_time" content="2020-05-07T02:54:15.620Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/01/03/常用的docker-compose文件/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/05/06/node-exporter/"/>
 
 
 
 
 
-  <title>常用的docker-compose文件 | 落魄de少爷</title>
+  <title>node_exporter | 落魄de少爷</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/03/%E5%B8%B8%E7%94%A8%E7%9A%84docker-compose%E6%96%87%E4%BB%B6/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/06/node-exporter/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouJinliang">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">常用的docker-compose文件</h1>
+          <h1 class="post-title" itemprop="name headline">node_exporter</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-03T09:55:16+08:00">
-                2020-01-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-06T19:23:55+08:00">
+                2020-05-06
               </time>
             
 
@@ -330,13 +330,19 @@
       
 
       
-        <h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><p>docker-compose.yml:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">version: '3'</span><br><span class="line">services:</span><br><span class="line">  redis:</span><br><span class="line">    image: redis:4.0.13</span><br><span class="line">    container_name: redis</span><br><span class="line">    restart: always</span><br><span class="line">    command: redis-server /usr/local/etc/redis/redis.conf</span><br><span class="line">    ports:</span><br><span class="line">      - 6379:6379</span><br><span class="line">    volumes:</span><br><span class="line">      - $PWD/data:/data</span><br><span class="line">      - $PWD/conf/redis.conf:/usr/local/etc/redis/redis.conf</span><br><span class="line">      - /etc/timezone:/etc/timezone</span><br></pre></td></tr></table></figure>
-<p>redis.conf:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">requirepass password</span><br><span class="line">maxclients 20000</span><br></pre></td></tr></table></figure>
-
-<h1 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h1><h1 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h1><p>docker-compose.yml:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">version: '3'</span><br><span class="line">services:</span><br><span class="line">    db:</span><br><span class="line">        #构建mysql镜像</span><br><span class="line">        image: mysql:5.7.28</span><br><span class="line">        container_name: mysql</span><br><span class="line">        command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci #设置utf8字符集</span><br><span class="line">        restart: always</span><br><span class="line">        environment:</span><br><span class="line">          MYSQL_ROOT_PASSWORD: password</span><br><span class="line">        ports:</span><br><span class="line">          - '3306:3306'</span><br><span class="line">        volumes:</span><br><span class="line">          - "/ztocwst/mysql/db:/var/lib/mysql"</span><br><span class="line">          - "/ztocwst/mysql/conf:/etc/mysql/conf.d"</span><br></pre></td></tr></table></figure>
+        <p>CPU的使用率 = 所有非空闲状态的CPU使用时间总和 / 所有状态CPU时间的总和</p>
+<p>上面的公式需要将所有的项加在一起比较麻烦，比如用户态，内核态，io等待 </p>
+<p>将上面的公式简化下为：</p>
+<p>100% - （idle / 总时间）</p>
+<p>那么要算一分钟平均使用率呢？</p>
+<p>node_exporter 返回的数据类型 == 》 counter 类型数据 （CPU底层是时间的累积）</p>
+<p>函数 increase()  increase(node_cpu[1m])</p>
+<p>sum()函数 ： 结果集合进行加和<br>sum(increase(node_cpu{mode=”idle”}[1m])) 1分钟空闲时间增量</p>
+<p>sum(increase(node_cpu[1m])) 1分钟全部时间增量</p>
+<p>sum(increase(node_cpu{mode=”idle”}[1m])) / sum(increase(node_cpu[1m]))</p>
+<p>by (instance)</p>
+<p>(sum(increase(node_cpu{mode=”idle”}[1m])) by(instance)) / (sum(increase(node_cpu[1m])) by(instance))</p>
+<p>node_filesystem_avail{device=<del>“:/.*”}*100/(node_filesystem_size{device=</del>“:/.*”}-(node_filesystem_free{device=<del>“:/.*”}-node_filesystem_avail{device=</del>“:/.*”}))</p>
 
       
     </div>
@@ -361,8 +367,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/12/13/Kafka%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="next" title="Kafka知识点">
-                <i class="fa fa-chevron-left"></i> Kafka知识点
+              <a href="/2020/05/03/go%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/" rel="next" title="go知识点整理">
+                <i class="fa fa-chevron-left"></i> go知识点整理
               </a>
             
           </div>
@@ -370,10 +376,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/01/03/%E5%B8%B8%E7%94%A8%E7%9A%84Dockerfile%E6%96%87%E4%BB%B6/" rel="prev" title="常用的Dockerfile文件">
-                常用的Dockerfile文件 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -425,17 +427,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -507,22 +500,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis"><span class="nav-number">1.</span> <span class="nav-text">Redis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MongoDB"><span class="nav-number">2.</span> <span class="nav-text">MongoDB</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mysql"><span class="nav-number">3.</span> <span class="nav-text">Mysql</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

@@ -81,15 +81,15 @@
 
 
 
-<meta name="description" content="Redisdocker-compose.yml: 1234567891011121314---version: &amp;apos;3&amp;apos;services:  redis:    image: redis:4.0.13    container_name: redis    restart: always    command: redis-server &#x2F;usr&#x2F;local&#x2F;etc&#x2F;redis&#x2F;redis.conf">
+<meta name="description" content="用户输入： 12345678910111213141516171819package mainimport &quot;fmt&quot;func main() &amp;#123;	var name string	var age int	fmt.Print(&quot;请输入你的名字：&quot;)	fmt.Scan(&amp;amp;name)	fmt.Println(&quot;名字:&quot;,name)	fmt.Print(&quot;请输入你的年龄：&quot;)	fmt.Sc">
 <meta name="keywords" content="devops k8s python java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="常用的docker-compose文件">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;03&#x2F;%E5%B8%B8%E7%94%A8%E7%9A%84docker-compose%E6%96%87%E4%BB%B6&#x2F;index.html">
+<meta property="og:title" content="go基础2">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;26&#x2F;go%E5%9F%BA%E7%A1%802&#x2F;index.html">
 <meta property="og:site_name" content="落魄de少爷">
-<meta property="og:description" content="Redisdocker-compose.yml: 1234567891011121314---version: &amp;apos;3&amp;apos;services:  redis:    image: redis:4.0.13    container_name: redis    restart: always    command: redis-server &#x2F;usr&#x2F;local&#x2F;etc&#x2F;redis&#x2F;redis.conf">
+<meta property="og:description" content="用户输入： 12345678910111213141516171819package mainimport &quot;fmt&quot;func main() &amp;#123;	var name string	var age int	fmt.Print(&quot;请输入你的名字：&quot;)	fmt.Scan(&amp;amp;name)	fmt.Println(&quot;名字:&quot;,name)	fmt.Print(&quot;请输入你的年龄：&quot;)	fmt.Sc">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-03T04:25:15.267Z">
+<meta property="og:updated_time" content="2020-03-27T00:40:31.798Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/01/03/常用的docker-compose文件/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/03/26/go基础2/"/>
 
 
 
 
 
-  <title>常用的docker-compose文件 | 落魄de少爷</title>
+  <title>go基础2 | 落魄de少爷</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/03/%E5%B8%B8%E7%94%A8%E7%9A%84docker-compose%E6%96%87%E4%BB%B6/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/26/go%E5%9F%BA%E7%A1%802/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouJinliang">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">常用的docker-compose文件</h1>
+          <h1 class="post-title" itemprop="name headline">go基础2</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-03T09:55:16+08:00">
-                2020-01-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-26T09:20:19+08:00">
+                2020-03-26
               </time>
             
 
@@ -330,13 +330,19 @@
       
 
       
-        <h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><p>docker-compose.yml:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">version: '3'</span><br><span class="line">services:</span><br><span class="line">  redis:</span><br><span class="line">    image: redis:4.0.13</span><br><span class="line">    container_name: redis</span><br><span class="line">    restart: always</span><br><span class="line">    command: redis-server /usr/local/etc/redis/redis.conf</span><br><span class="line">    ports:</span><br><span class="line">      - 6379:6379</span><br><span class="line">    volumes:</span><br><span class="line">      - $PWD/data:/data</span><br><span class="line">      - $PWD/conf/redis.conf:/usr/local/etc/redis/redis.conf</span><br><span class="line">      - /etc/timezone:/etc/timezone</span><br></pre></td></tr></table></figure>
-<p>redis.conf:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">requirepass password</span><br><span class="line">maxclients 20000</span><br></pre></td></tr></table></figure>
+        <p>用户输入：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> name <span class="keyword">string</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> age <span class="keyword">int</span></span><br><span class="line"></span><br><span class="line">	fmt.Print(<span class="string">"请输入你的名字："</span>)</span><br><span class="line"></span><br><span class="line">	fmt.Scan(&amp;name)</span><br><span class="line"></span><br><span class="line">	fmt.Println(<span class="string">"名字:"</span>,name)</span><br><span class="line"></span><br><span class="line">	fmt.Print(<span class="string">"请输入你的年龄："</span>)</span><br><span class="line">	fmt.Scan(&amp;age)</span><br><span class="line">	fmt.Println(<span class="string">"年龄："</span>,age)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h1><h1 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h1><p>docker-compose.yml:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">version: '3'</span><br><span class="line">services:</span><br><span class="line">    db:</span><br><span class="line">        #构建mysql镜像</span><br><span class="line">        image: mysql:5.7.28</span><br><span class="line">        container_name: mysql</span><br><span class="line">        command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci #设置utf8字符集</span><br><span class="line">        restart: always</span><br><span class="line">        environment:</span><br><span class="line">          MYSQL_ROOT_PASSWORD: password</span><br><span class="line">        ports:</span><br><span class="line">          - '3306:3306'</span><br><span class="line">        volumes:</span><br><span class="line">          - "/ztocwst/mysql/db:/var/lib/mysql"</span><br><span class="line">          - "/ztocwst/mysql/conf:/etc/mysql/conf.d"</span><br></pre></td></tr></table></figure>
+<p>if 表达式：</p>
+<p>案例：</p>
+<p>老婆给当程序员的老公打电话：下班顺路买10个包子，如果看到卖西瓜的，买一个。</p>
+<p>老婆：买10个包子，如果有卖西瓜的，买一个西瓜<br>老公：如果有卖西瓜的，买一个包子，否则买10个包子。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">"是否看到卖西瓜的:yes/no"</span>)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> status <span class="keyword">string</span> </span><br><span class="line">	fmt.Scan(&amp;status)</span><br><span class="line"></span><br><span class="line">	fmt.Println(<span class="string">"老婆的想法:"</span>)</span><br><span class="line">    fmt.Println(<span class="string">"买10个包子"</span>)</span><br><span class="line">    <span class="keyword">if</span> status == <span class="string">"yes"</span> || status == <span class="string">"Y"</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">"买一个西瓜"</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	fmt.Println(<span class="string">"老公的想法:"</span>)</span><br><span class="line">	<span class="keyword">if</span> status == <span class="string">"yes"</span> || status == <span class="string">"Y"</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">"买一个包子"</span>)</span><br><span class="line">	&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">"买10个包子"</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>switch 语句:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> yes <span class="keyword">string</span></span><br><span class="line">	fmt.Print(<span class="string">"有没有西瓜卖？(Y/N)"</span>)</span><br><span class="line">	fmt.Scan(&amp;yes)</span><br><span class="line"></span><br><span class="line">	fmt.Println(<span class="string">"老婆的想法:"</span>)</span><br><span class="line">	fmt.Println(<span class="string">"买10个包子"</span>)</span><br><span class="line">	<span class="keyword">switch</span> yes&#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="string">"Y"</span>,<span class="string">"Yes"</span>:</span><br><span class="line">		fmt.Println(<span class="string">"买一个西瓜"</span>)</span><br><span class="line">	<span class="keyword">case</span> <span class="string">"y"</span>,<span class="string">"yes"</span>:</span><br><span class="line">		fmt.Println(<span class="string">"买一个西瓜"</span>)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	fmt.Println(<span class="string">"老公的想法:"</span>)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">switch</span> yes &#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="string">"Y"</span>,<span class="string">"Yes"</span>,<span class="string">"y"</span>,<span class="string">"yes"</span>:</span><br><span class="line">		fmt.Println(<span class="string">"买1个包子"</span>)</span><br><span class="line">	<span class="keyword">default</span>:</span><br><span class="line">		fmt.Println(<span class="string">"买10个包子"</span>)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> score <span class="keyword">int</span></span><br><span class="line">	fmt.Print(<span class="string">"请输入你的分数:"</span>)</span><br><span class="line">	fmt.Scan(&amp;score)</span><br><span class="line">	<span class="keyword">switch</span>&#123;</span><br><span class="line">	<span class="keyword">case</span> score &gt;= <span class="number">90</span>:</span><br><span class="line">		fmt.Println(<span class="string">"A"</span>)</span><br><span class="line">	<span class="keyword">case</span> score &gt;= <span class="number">80</span>:</span><br><span class="line">		fmt.Println(<span class="string">"B"</span>)</span><br><span class="line">	<span class="keyword">case</span> score &gt;=<span class="number">60</span>:</span><br><span class="line">		fmt.Println(<span class="string">"C"</span>)</span><br><span class="line">	<span class="keyword">default</span>:</span><br><span class="line">		fmt.Println(<span class="string">"E"</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>for 循环：</p>
 
       
     </div>
@@ -361,8 +367,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/12/13/Kafka%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="next" title="Kafka知识点">
-                <i class="fa fa-chevron-left"></i> Kafka知识点
+              <a href="/2020/03/21/go%E5%9F%BA%E7%A1%801/" rel="next" title="go">
+                <i class="fa fa-chevron-left"></i> go
               </a>
             
           </div>
@@ -371,8 +377,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/01/03/%E5%B8%B8%E7%94%A8%E7%9A%84Dockerfile%E6%96%87%E4%BB%B6/" rel="prev" title="常用的Dockerfile文件">
-                常用的Dockerfile文件 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/03/27/ansible/" rel="prev" title="ansible">
+                ansible <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -425,17 +431,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -507,22 +504,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis"><span class="nav-number">1.</span> <span class="nav-text">Redis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MongoDB"><span class="nav-number">2.</span> <span class="nav-text">MongoDB</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mysql"><span class="nav-number">3.</span> <span class="nav-text">Mysql</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

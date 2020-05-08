@@ -81,15 +81,15 @@
 
 
 
-<meta name="description" content="Redisdocker-compose.yml: 1234567891011121314---version: &amp;apos;3&amp;apos;services:  redis:    image: redis:4.0.13    container_name: redis    restart: always    command: redis-server &#x2F;usr&#x2F;local&#x2F;etc&#x2F;redis&#x2F;redis.conf">
+<meta name="description" content="devops k8s python java">
 <meta name="keywords" content="devops k8s python java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="常用的docker-compose文件">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;03&#x2F;%E5%B8%B8%E7%94%A8%E7%9A%84docker-compose%E6%96%87%E4%BB%B6&#x2F;index.html">
+<meta property="og:title" content="ansible">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;27&#x2F;ansible&#x2F;index.html">
 <meta property="og:site_name" content="落魄de少爷">
-<meta property="og:description" content="Redisdocker-compose.yml: 1234567891011121314---version: &amp;apos;3&amp;apos;services:  redis:    image: redis:4.0.13    container_name: redis    restart: always    command: redis-server &#x2F;usr&#x2F;local&#x2F;etc&#x2F;redis&#x2F;redis.conf">
+<meta property="og:description" content="devops k8s python java">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-03T04:25:15.267Z">
+<meta property="og:updated_time" content="2020-03-27T06:14:37.323Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/01/03/常用的docker-compose文件/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/03/27/ansible/"/>
 
 
 
 
 
-  <title>常用的docker-compose文件 | 落魄de少爷</title>
+  <title>ansible | 落魄de少爷</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/03/%E5%B8%B8%E7%94%A8%E7%9A%84docker-compose%E6%96%87%E4%BB%B6/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/27/ansible/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouJinliang">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">常用的docker-compose文件</h1>
+          <h1 class="post-title" itemprop="name headline">ansible</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-03T09:55:16+08:00">
-                2020-01-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-27T14:14:37+08:00">
+                2020-03-27
               </time>
             
 
@@ -330,14 +330,7 @@
       
 
       
-        <h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><p>docker-compose.yml:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">version: '3'</span><br><span class="line">services:</span><br><span class="line">  redis:</span><br><span class="line">    image: redis:4.0.13</span><br><span class="line">    container_name: redis</span><br><span class="line">    restart: always</span><br><span class="line">    command: redis-server /usr/local/etc/redis/redis.conf</span><br><span class="line">    ports:</span><br><span class="line">      - 6379:6379</span><br><span class="line">    volumes:</span><br><span class="line">      - $PWD/data:/data</span><br><span class="line">      - $PWD/conf/redis.conf:/usr/local/etc/redis/redis.conf</span><br><span class="line">      - /etc/timezone:/etc/timezone</span><br></pre></td></tr></table></figure>
-<p>redis.conf:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">requirepass password</span><br><span class="line">maxclients 20000</span><br></pre></td></tr></table></figure>
-
-<h1 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h1><h1 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h1><p>docker-compose.yml:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">version: '3'</span><br><span class="line">services:</span><br><span class="line">    db:</span><br><span class="line">        #构建mysql镜像</span><br><span class="line">        image: mysql:5.7.28</span><br><span class="line">        container_name: mysql</span><br><span class="line">        command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci #设置utf8字符集</span><br><span class="line">        restart: always</span><br><span class="line">        environment:</span><br><span class="line">          MYSQL_ROOT_PASSWORD: password</span><br><span class="line">        ports:</span><br><span class="line">          - '3306:3306'</span><br><span class="line">        volumes:</span><br><span class="line">          - "/ztocwst/mysql/db:/var/lib/mysql"</span><br><span class="line">          - "/ztocwst/mysql/conf:/etc/mysql/conf.d"</span><br></pre></td></tr></table></figure>
-
+        
       
     </div>
     
@@ -361,8 +354,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/12/13/Kafka%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="next" title="Kafka知识点">
-                <i class="fa fa-chevron-left"></i> Kafka知识点
+              <a href="/2020/03/26/go%E5%9F%BA%E7%A1%802/" rel="next" title="go基础2">
+                <i class="fa fa-chevron-left"></i> go基础2
               </a>
             
           </div>
@@ -371,8 +364,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/01/03/%E5%B8%B8%E7%94%A8%E7%9A%84Dockerfile%E6%96%87%E4%BB%B6/" rel="prev" title="常用的Dockerfile文件">
-                常用的Dockerfile文件 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/03/27/go%E5%A4%8D%E5%90%88%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" rel="prev" title="go复合数据类型">
+                go复合数据类型 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -425,17 +418,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -507,22 +491,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis"><span class="nav-number">1.</span> <span class="nav-text">Redis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MongoDB"><span class="nav-number">2.</span> <span class="nav-text">MongoDB</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mysql"><span class="nav-number">3.</span> <span class="nav-text">Mysql</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
