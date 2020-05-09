@@ -81,15 +81,15 @@
 
 
 
-<meta name="description" content="Day01 - 20200328Day02 - 20200411Go语言中的函数函数定义 无参无返回值func sayHello(){   fmt.Println(&quot;Hello World&quot;) }   Day04 - 20200425Day05 - 20200510">
+<meta name="description" content="Day01 - 20200328Day02 - 20200411Go语言中的函数函数定义关键点：func申明 , 函数名 , 形参列表 ,  函数体 ,  返回值列表   无参无返回值 123func sayHello()&amp;#123;	fmt.Println(&quot;Hello World&quot;)&amp;#125;  方法调用调用：方法名() 12345678910package mainimport (	&quot;fm">
 <meta name="keywords" content="devops k8s python java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="go知识点整理">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;05&#x2F;03&#x2F;go%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86&#x2F;index.html">
 <meta property="og:site_name" content="落魄de少爷">
-<meta property="og:description" content="Day01 - 20200328Day02 - 20200411Go语言中的函数函数定义 无参无返回值func sayHello(){   fmt.Println(&quot;Hello World&quot;) }   Day04 - 20200425Day05 - 20200510">
+<meta property="og:description" content="Day01 - 20200328Day02 - 20200411Go语言中的函数函数定义关键点：func申明 , 函数名 , 形参列表 ,  函数体 ,  返回值列表   无参无返回值 123func sayHello()&amp;#123;	fmt.Println(&quot;Hello World&quot;)&amp;#125;  方法调用调用：方法名() 12345678910package mainimport (	&quot;fm">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-08T23:58:38.239Z">
+<meta property="og:updated_time" content="2020-05-09T00:10:47.916Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -330,10 +330,14 @@
       
 
       
-        <h1 id="Day01-20200328"><a href="#Day01-20200328" class="headerlink" title="Day01 - 20200328"></a>Day01 - 20200328</h1><h1 id="Day02-20200411"><a href="#Day02-20200411" class="headerlink" title="Day02 - 20200411"></a>Day02 - 20200411</h1><h1 id="Go语言中的函数"><a href="#Go语言中的函数" class="headerlink" title="Go语言中的函数"></a>Go语言中的函数</h1><h2 id="函数定义"><a href="#函数定义" class="headerlink" title="函数定义"></a>函数定义</h2><ul>
-<li>无参无返回值<pre><code class="go"><span class="function"><span class="keyword">func</span> <span class="title">sayHello</span><span class="params">()</span></span>{
-  fmt.Println(<span class="string">"Hello World"</span>)
-}</code></pre>
+        <h1 id="Day01-20200328"><a href="#Day01-20200328" class="headerlink" title="Day01 - 20200328"></a>Day01 - 20200328</h1><h1 id="Day02-20200411"><a href="#Day02-20200411" class="headerlink" title="Day02 - 20200411"></a>Day02 - 20200411</h1><h1 id="Go语言中的函数"><a href="#Go语言中的函数" class="headerlink" title="Go语言中的函数"></a>Go语言中的函数</h1><h2 id="函数定义"><a href="#函数定义" class="headerlink" title="函数定义"></a>函数定义</h2><p>关键点：func申明 , 函数名 , 形参列表 ,  函数体 ,  返回值列表 </p>
+<ul>
+<li><p>无参无返回值</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sayHello</span><span class="params">()</span></span>&#123;</span><br><span class="line">	fmt.Println(<span class="string">"Hello World"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>方法调用<br>调用：方法名()</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sayHello</span><span class="params">()</span></span>&#123;</span><br><span class="line">	fmt.Println(<span class="string">"hello world"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	sayHello() <span class="comment">//调用方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h1 id="Day04-20200425"><a href="#Day04-20200425" class="headerlink" title="Day04 - 20200425"></a>Day04 - 20200425</h1><h1 id="Day05-20200510"><a href="#Day05-20200510" class="headerlink" title="Day05 - 20200510"></a>Day05 - 20200510</h1>
