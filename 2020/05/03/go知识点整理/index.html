@@ -81,15 +81,15 @@
 
 
 
-<meta name="description" content="Day01 - 20200328Day02 - 20200411Go语言中的函数函数定义关键点：func申明 , 函数名 , 形参列表 ,  函数体 ,  返回值列表   无参无返回值 123func sayHello()&amp;#123;	fmt.Println(&quot;Hello World&quot;)&amp;#125;  方法调用调用：方法名() 12345678910package mainimport (	&quot;fm">
+<meta name="description" content="Day01 - 20200328Day02 - 20200411Go语言中的函数函数定义关键点：func申明 , 函数名 , 形参列表 ,  函数体 ,  返回值列表   无参无返回值 123func sayHello()&amp;#123;	fmt.Println(&quot;Hello World&quot;)&amp;#125;  有参无返回值 123func sayHi(name string,name2 string)&amp;#">
 <meta name="keywords" content="devops k8s python java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="go知识点整理">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;05&#x2F;03&#x2F;go%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86&#x2F;index.html">
 <meta property="og:site_name" content="落魄de少爷">
-<meta property="og:description" content="Day01 - 20200328Day02 - 20200411Go语言中的函数函数定义关键点：func申明 , 函数名 , 形参列表 ,  函数体 ,  返回值列表   无参无返回值 123func sayHello()&amp;#123;	fmt.Println(&quot;Hello World&quot;)&amp;#125;  方法调用调用：方法名() 12345678910package mainimport (	&quot;fm">
+<meta property="og:description" content="Day01 - 20200328Day02 - 20200411Go语言中的函数函数定义关键点：func申明 , 函数名 , 形参列表 ,  函数体 ,  返回值列表   无参无返回值 123func sayHello()&amp;#123;	fmt.Println(&quot;Hello World&quot;)&amp;#125;  有参无返回值 123func sayHi(name string,name2 string)&amp;#">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-09T00:10:47.916Z">
+<meta property="og:updated_time" content="2020-05-09T09:45:24.124Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -335,11 +335,78 @@
 <li><p>无参无返回值</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sayHello</span><span class="params">()</span></span>&#123;</span><br><span class="line">	fmt.Println(<span class="string">"Hello World"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>方法调用<br>调用：方法名()</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sayHello</span><span class="params">()</span></span>&#123;</span><br><span class="line">	fmt.Println(<span class="string">"hello world"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	sayHello() <span class="comment">//调用方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>有参无返回值</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sayHi</span><span class="params">(name <span class="keyword">string</span>,name2 <span class="keyword">string</span>)</span></span>&#123;</span><br><span class="line">	fmt.Println(<span class="string">"Hi,"</span>,name)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>返回值</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(n1 <span class="keyword">int</span>,n2 <span class="keyword">int</span>)</span><span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> n1+n2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
+<h2 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h2><p>调用方式：方法名()</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	sayHello() <span class="comment">//调用无参函数</span></span><br><span class="line">	sayHi(<span class="string">"小王"</span>,<span class="string">"小李"</span>) <span class="comment">//调用有参函数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h2><ul>
+<li>参数类型合并</li>
+</ul>
+<p>多个连续相同参数类型可合并</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(p1,p2 <span class="keyword">string</span>,p3,p4 <span class="keyword">int</span>,p5,p6 <span class="keyword">bool</span>)</span><span class="title">int</span></span> &#123;</span><br><span class="line">	fmt.Println(p1,p2,p3,p4,p5,p6)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>可变参数  </li>
+</ul>
+<p>几个参数传递几个值, Println 函数可以传递任意个参数, 引出可变参数。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test</span><span class="params">(args ...<span class="keyword">string</span>)</span></span> &#123;</span><br><span class="line">	fmt.Printf(<span class="string">"%T,%#v\n"</span>,args,args) <span class="comment">// args 是切片类型</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(n1,n2 <span class="keyword">int</span>, args ...<span class="keyword">int</span>)</span> // 声明至少有2个参数</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>可变参数传递解操作<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(n1,n2 <span class="keyword">int</span>,args...<span class="keyword">int</span>)</span><span class="title">int</span></span>&#123;</span><br><span class="line">	total := n1+n2</span><br><span class="line">	<span class="keyword">for</span> _,v := <span class="keyword">range</span> args&#123;</span><br><span class="line">		total += v</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> total</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">calc</span><span class="params">(n1,n2 <span class="keyword">int</span>,args...<span class="keyword">int</span>)</span><span class="title">int</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> add(n1,n2,args...) <span class="comment">//解操作</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	fmt.Println(calc(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>案例2：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">params := []<span class="keyword">int</span>&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;</span><br><span class="line">fmt.Println(add(<span class="number">1</span>,<span class="number">2</span>,params...))</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <h1 id="Day04-20200425"><a href="#Day04-20200425" class="headerlink" title="Day04 - 20200425"></a>Day04 - 20200425</h1><h1 id="Day05-20200510"><a href="#Day05-20200510" class="headerlink" title="Day05 - 20200510"></a>Day05 - 20200510</h1>
       
     </div>
@@ -520,7 +587,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Day01-20200328"><span class="nav-number">1.</span> <span class="nav-text">Day01 - 20200328</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Day02-20200411"><span class="nav-number">2.</span> <span class="nav-text">Day02 - 20200411</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Go语言中的函数"><span class="nav-number">3.</span> <span class="nav-text">Go语言中的函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数定义"><span class="nav-number">3.1.</span> <span class="nav-text">函数定义</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Day04-20200425"><span class="nav-number">4.</span> <span class="nav-text">Day04 - 20200425</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Day05-20200510"><span class="nav-number">5.</span> <span class="nav-text">Day05 - 20200510</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Day01-20200328"><span class="nav-number">1.</span> <span class="nav-text">Day01 - 20200328</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Day02-20200411"><span class="nav-number">2.</span> <span class="nav-text">Day02 - 20200411</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Go语言中的函数"><span class="nav-number">3.</span> <span class="nav-text">Go语言中的函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数定义"><span class="nav-number">3.1.</span> <span class="nav-text">函数定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数调用"><span class="nav-number">3.2.</span> <span class="nav-text">函数调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数参数"><span class="nav-number">3.3.</span> <span class="nav-text">函数参数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Day04-20200425"><span class="nav-number">4.</span> <span class="nav-text">Day04 - 20200425</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Day05-20200510"><span class="nav-number">5.</span> <span class="nav-text">Day05 - 20200510</span></a></li></ol></div>
             
 
           </div>
