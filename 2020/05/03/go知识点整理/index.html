@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="落魄de少爷">
 <meta property="og:description" content="Day01 - Go语言基础语法入门Day02 - Go语言复合数据类型Day03 - Go语言中的函数函数定义关键点：func申明 , 函数名 , 形参列表 ,  函数体 ,  返回值列表   无参无返回值 123func sayHello()&amp;#123;	fmt.Println(&quot;Hello World&quot;)&amp;#125;  有参无返回值 123func sayHi(name string,nam">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-11T04:30:32.940Z">
+<meta property="og:updated_time" content="2020-06-11T04:44:10.142Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -431,7 +431,8 @@
 
 <h1 id="Day06-go语言的文件与IO操作"><a href="#Day06-go语言的文件与IO操作" class="headerlink" title="Day06 - go语言的文件与IO操作"></a>Day06 - go语言的文件与IO操作</h1><h1 id="Day07-go语言的接口与反射"><a href="#Day07-go语言的接口与反射" class="headerlink" title="Day07 - go语言的接口与反射"></a>Day07 - go语言的接口与反射</h1><h1 id="Day08-go语言的并发编程"><a href="#Day08-go语言的并发编程" class="headerlink" title="Day08 - go语言的并发编程"></a>Day08 - go语言的并发编程</h1><h1 id="Day09-go语言网络编程"><a href="#Day09-go语言网络编程" class="headerlink" title="Day09 - go语言网络编程"></a>Day09 - go语言网络编程</h1><p>net包提供了对socket编程的支持，socket编程分服务端和客户端编程，针对服务端可使用函数Listen创建监听服务,对于客户端可使用函数Dial连接服务器</p>
 <ul>
-<li>常用函数<ul>
+<li><p>常用函数</p>
+<ul>
 <li>Listen: 用于创建监听服务器</li>
 <li>ListenPacket: 用于创建服务器端连接</li>
 <li>Dial: 用于创建与服务器连接</li>
@@ -440,6 +441,40 @@
 <li>LookupAddr: 查找地址对应主机名</li>
 <li>LookupHost: 根据主机名查看地址</li>
 <li>ParseCIDR: 解析CIDR格式IP</li>
+</ul>
+</li>
+<li><p>常用结构体</p>
+<ul>
+<li>IP<ul>
+<li>常用函数<ul>
+<li>ParseIP： 解析地址</li>
+<li>LookupIP: 根据主机名查找IP</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IPNet<ul>
+<li>常用方法<ul>
+<li>Contains: 判断是否包含某IP</li>
+<li>Network: 获取网络地址类型</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Addr<ul>
+<li>常用函数<ul>
+<li>InterfaceAddrs: 获取说有网络地址信息<ul>
+<li>常用方法:<ul>
+<li>Network: 获取网络类型</li>
+<li>String: 获取网络地址</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
