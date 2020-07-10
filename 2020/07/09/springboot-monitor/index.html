@@ -81,15 +81,15 @@
 
 
 
-<meta name="description" content="CPU的使用率 = 所有非空闲状态的CPU使用时间总和 &#x2F; 所有状态CPU时间的总和 上面的公式需要将所有的项加在一起比较麻烦，比如用户态，内核态，io等待  将上面的公式简化下为： 100% - （idle &#x2F; 总时间） 那么要算一分钟平均使用率呢？ node_exporter 返回的数据类型 == 》 counter 类型数据 （CPU底层是时间的累积） 函数 increase()  incr">
+<meta name="description" content="application.properties: spring.application.name=Jeremy.Zhoumanagement.metrics.tags.application=${spring.application.name} management.endpoints.web.exposure.include=*management.endpoints.web.exposure.e">
 <meta name="keywords" content="devops k8s python java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="node_exporter">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;05&#x2F;06&#x2F;node-exporter&#x2F;index.html">
+<meta property="og:title" content="springboot_monitor">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;07&#x2F;09&#x2F;springboot-monitor&#x2F;index.html">
 <meta property="og:site_name" content="落魄de少爷">
-<meta property="og:description" content="CPU的使用率 = 所有非空闲状态的CPU使用时间总和 &#x2F; 所有状态CPU时间的总和 上面的公式需要将所有的项加在一起比较麻烦，比如用户态，内核态，io等待  将上面的公式简化下为： 100% - （idle &#x2F; 总时间） 那么要算一分钟平均使用率呢？ node_exporter 返回的数据类型 == 》 counter 类型数据 （CPU底层是时间的累积） 函数 increase()  incr">
+<meta property="og:description" content="application.properties: spring.application.name=Jeremy.Zhoumanagement.metrics.tags.application=${spring.application.name} management.endpoints.web.exposure.include=*management.endpoints.web.exposure.e">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-07T02:54:15.620Z">
+<meta property="og:updated_time" content="2020-07-10T05:14:23.481Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/05/06/node-exporter/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/07/09/springboot-monitor/"/>
 
 
 
 
 
-  <title>node_exporter | 落魄de少爷</title>
+  <title>springboot_monitor | 落魄de少爷</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/06/node-exporter/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/09/springboot-monitor/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouJinliang">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">node_exporter</h1>
+          <h1 class="post-title" itemprop="name headline">springboot_monitor</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-06T19:23:55+08:00">
-                2020-05-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-09T23:15:03+08:00">
+                2020-07-09
               </time>
             
 
@@ -330,20 +330,27 @@
       
 
       
-        <p>CPU的使用率 = 所有非空闲状态的CPU使用时间总和 / 所有状态CPU时间的总和</p>
-<p>上面的公式需要将所有的项加在一起比较麻烦，比如用户态，内核态，io等待 </p>
-<p>将上面的公式简化下为：</p>
-<p>100% - （idle / 总时间）</p>
-<p>那么要算一分钟平均使用率呢？</p>
-<p>node_exporter 返回的数据类型 == 》 counter 类型数据 （CPU底层是时间的累积）</p>
-<p>函数 increase()  increase(node_cpu[1m])</p>
-<p>sum()函数 ： 结果集合进行加和<br>sum(increase(node_cpu{mode=”idle”}[1m])) 1分钟空闲时间增量</p>
-<p>sum(increase(node_cpu[1m])) 1分钟全部时间增量</p>
-<p>sum(increase(node_cpu{mode=”idle”}[1m])) / sum(increase(node_cpu[1m]))</p>
-<p>by (instance)</p>
-<p>(sum(increase(node_cpu{mode=”idle”}[1m])) by(instance)) / (sum(increase(node_cpu[1m])) by(instance))</p>
-<p>node_filesystem_avail{device=<del>“:/.*”}*100/(node_filesystem_size{device=</del>“:/.*”}-(node_filesystem_free{device=<del>“:/.*”}-node_filesystem_avail{device=</del>“:/.*”}))</p>
-
+        <p>application.properties:</p>
+<p>spring.application.name=Jeremy.Zhou<br>management.metrics.tags.application=${spring.application.name}</p>
+<p>management.endpoints.web.exposure.include=*<br>management.endpoints.web.exposure.exclude = env,beans</p>
+<p>management.endpoint.shutdown.enabled=true<br>management.metrics.export.simple.enabled=false</p>
+<p>info.author=Jeremy.Zhou<br>info.mobile=EC</p>
+<!--actuator 监控模块-->
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre><!--micrometer核心包，桥接Prometheus-->
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;io.micrometer&lt;/groupId&gt;
+    &lt;artifactId&gt;micrometer-registry-prometheus&lt;/artifactId&gt;
+    &lt;version&gt;1.5.1&lt;/version&gt;
+&lt;/dependency&gt;</code></pre><!--micrometer获取jvm相关信息,用于展示在Grafana上-->
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;io.github.mweirauch&lt;/groupId&gt;
+    &lt;artifactId&gt;micrometer-jvm-extras&lt;/artifactId&gt;
+    &lt;version&gt;0.1.4&lt;/version&gt;
+&lt;/dependency&gt;</code></pre><p>MeterBinder接口实现 bind 方法注册到 MeterRegistry<br>业务代码逻辑 更新 Metrics<br>使用并验证 Metrics</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> com.example.demo.metrics;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> io.micrometer.core.instrument.Counter;</span><br><span class="line"><span class="keyword">import</span> io.micrometer.core.instrument.Gauge;</span><br><span class="line"><span class="keyword">import</span> io.micrometer.core.instrument.MeterRegistry;</span><br><span class="line"><span class="keyword">import</span> io.micrometer.core.instrument.binder.MeterBinder;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CharlesMetrics</span> <span class="keyword">implements</span> <span class="title">MeterBinder</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Counter counter1;</span><br><span class="line">    <span class="keyword">public</span> Counter counter2;</span><br><span class="line">    <span class="keyword">public</span> Counter counter3;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Map&lt;String,Double&gt; map;</span><br><span class="line"></span><br><span class="line">    CharlesMetrics() &#123; map = <span class="keyword">new</span> HashMap&lt;&gt;(); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bindTo</span><span class="params">(MeterRegistry meterRegistry)</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">this</span>.counter1 = Counter.builder(<span class="string">"charles.demo.counter"</span>).tages(<span class="keyword">new</span> String[]&#123;<span class="string">"name"</span>,<span class="string">"counter1"</span>&#125;).description(<span class="string">"This is the first counter"</span>)</span><br><span class="line">		<span class="keyword">this</span>.counter2 = Counter.builder(<span class="string">"charles.demo.counter"</span>).tages(<span class="keyword">new</span> String[]&#123;<span class="string">"name"</span>,<span class="string">"counter2"</span>&#125;).description(<span class="string">"This is the first counter"</span>)</span><br><span class="line">		<span class="keyword">this</span>.counter3 = Counter.builder(<span class="string">"charles.demo.counter"</span>).tages(<span class="keyword">new</span> String[]&#123;<span class="string">"name"</span>,<span class="string">"counter3"</span>&#125;).description(<span class="string">"This is the first counter"</span>)</span><br><span class="line"></span><br><span class="line">		Gauge.builder(<span class="string">"charles.demo.gauge"</span>,map,x-&gt;x.get(<span class="string">"x"</span>)).tages(<span class="string">"name"</span>,<span class="string">"gauge1"</span>).description(<span class="string">"This is Gauge"</span>).register(meterRegistry);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -367,8 +374,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/05/03/go%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/" rel="next" title="go知识点整理">
-                <i class="fa fa-chevron-left"></i> go知识点整理
+              <a href="/2020/06/18/%E4%BD%BF%E7%94%A8Prometheus%E5%AE%9E%E8%B7%B5%E5%9F%BA%E4%BA%8ESpring-Boot%E7%9B%91%E6%8E%A7%E5%91%8A%E8%AD%A6%E4%BD%93%E7%B3%BB/" rel="next" title="使用Prometheus实践基于Spring Boot监控告警体系">
+                <i class="fa fa-chevron-left"></i> 使用Prometheus实践基于Spring Boot监控告警体系
               </a>
             
           </div>
@@ -376,10 +383,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/06/18/%E4%BD%BF%E7%94%A8Prometheus%E5%AE%9E%E8%B7%B5%E5%9F%BA%E4%BA%8ESpring-Boot%E7%9B%91%E6%8E%A7%E5%91%8A%E8%AD%A6%E4%BD%93%E7%B3%BB/" rel="prev" title="使用Prometheus实践基于Spring Boot监控告警体系">
-                使用Prometheus实践基于Spring Boot监控告警体系 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
