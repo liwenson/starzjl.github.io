@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-08-03T02:59:23.577Z</updated>
+  <updated>2020-09-23T07:02:16.023Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>gin框架知识点</title>
+    <link href="http://yoursite.com/2020/09/23/gin%E6%A1%86%E6%9E%B6%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+    <id>http://yoursite.com/2020/09/23/gin%E6%A1%86%E6%9E%B6%E7%9F%A5%E8%AF%86%E7%82%B9/</id>
+    <published>2020-09-23T06:42:09.000Z</published>
+    <updated>2020-09-23T07:02:16.023Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="gin-是什么"><a href="#gin-是什么" class="headerlink" title="gin 是什么"></a>gin 是什么</h1><p>gin是目前Github上Star最多的 GO WEB 框架。</p><p>gin web 框架的优点：</p><ol><li>star数最多</li><li>简单原则，以最简洁的方式做好某件事,gin 主要把功能聚焦在路由和请求上面</li><li>并发高,在并发压测情况下,吞吐量很高</li><li>分配内存少,在并发压测情况下,分配内存很低。</li></ol><h1 id="gin-知识概要"><a href="#gin-知识概要" class="headerlink" title="gin 知识概要"></a>gin 知识概要</h1><img src="http://img.zjl.pub/static/images/gin知识点01.png">]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;gin-是什么&quot;&gt;&lt;a href=&quot;#gin-是什么&quot; class=&quot;headerlink&quot; title=&quot;gin 是什么&quot;&gt;&lt;/a&gt;gin 是什么&lt;/h1&gt;&lt;p&gt;gin是目前Github上Star最多的 GO WEB 框架。&lt;/p&gt;
+&lt;p&gt;gin web 框架的
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>理财日记</title>
@@ -437,29 +460,6 @@
       
       
         &lt;h1 id=&quot;基础JAR&quot;&gt;&lt;a href=&quot;#基础JAR&quot; class=&quot;headerlink&quot; title=&quot;基础JAR&quot;&gt;&lt;/a&gt;基础JAR&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>常用的docker-compose文件</title>
-    <link href="http://yoursite.com/2020/01/03/%E5%B8%B8%E7%94%A8%E7%9A%84docker-compose%E6%96%87%E4%BB%B6/"/>
-    <id>http://yoursite.com/2020/01/03/%E5%B8%B8%E7%94%A8%E7%9A%84docker-compose%E6%96%87%E4%BB%B6/</id>
-    <published>2020-01-03T01:55:16.000Z</published>
-    <updated>2020-01-03T04:25:15.267Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><p>docker-compose.yml:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">version: '3'</span><br><span class="line">services:</span><br><span class="line">  redis:</span><br><span class="line">    image: redis:4.0.13</span><br><span class="line">    container_name: redis</span><br><span class="line">    restart: always</span><br><span class="line">    command: redis-server /usr/local/etc/redis/redis.conf</span><br><span class="line">    ports:</span><br><span class="line">      - 6379:6379</span><br><span class="line">    volumes:</span><br><span class="line">      - $PWD/data:/data</span><br><span class="line">      - $PWD/conf/redis.conf:/usr/local/etc/redis/redis.conf</span><br><span class="line">      - /etc/timezone:/etc/timezone</span><br></pre></td></tr></table></figure><p>redis.conf:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">requirepass password</span><br><span class="line">maxclients 20000</span><br></pre></td></tr></table></figure><h1 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h1><h1 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h1><p>docker-compose.yml:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">version: '3'</span><br><span class="line">services:</span><br><span class="line">    db:</span><br><span class="line">        #构建mysql镜像</span><br><span class="line">        image: mysql:5.7.28</span><br><span class="line">        container_name: mysql</span><br><span class="line">        command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci #设置utf8字符集</span><br><span class="line">        restart: always</span><br><span class="line">        environment:</span><br><span class="line">          MYSQL_ROOT_PASSWORD: password</span><br><span class="line">        ports:</span><br><span class="line">          - '3306:3306'</span><br><span class="line">        volumes:</span><br><span class="line">          - "/ztocwst/mysql/db:/var/lib/mysql"</span><br><span class="line">          - "/ztocwst/mysql/conf:/etc/mysql/conf.d"</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Redis&quot;&gt;&lt;a href=&quot;#Redis&quot; class=&quot;headerlink&quot; title=&quot;Redis&quot;&gt;&lt;/a&gt;Redis&lt;/h1&gt;&lt;p&gt;docker-compose.yml:&lt;/p&gt;
-&lt;figure class=&quot;highlight shell&quot;&gt;&lt;t
       
     
     </summary>
