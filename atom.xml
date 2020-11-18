@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-11-18T09:39:15.772Z</updated>
+  <updated>2020-11-18T09:43:18.098Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2020/11/18/golang%E5%AD%A6%E4%B9%A0%E6%89%8B%E5%86%8C/"/>
     <id>http://yoursite.com/2020/11/18/golang%E5%AD%A6%E4%B9%A0%E6%89%8B%E5%86%8C/</id>
     <published>2020-11-18T08:23:27.000Z</published>
-    <updated>2020-11-18T09:39:15.772Z</updated>
+    <updated>2020-11-18T09:43:18.098Z</updated>
     
-    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>知识图谱<ul><li>Scala</li><li>Python</li><li>java<ul><li>jvm</li></ul></li><li>消息队列<ul><li>kafak</li><li>pulsar</li></ul></li></ul></li></ul></blockquote>]]></content>
+    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>知识图谱<ul><li>Scala</li><li>Python</li><li>java<ul><li>jvm</li></ul></li><li>消息队列<ul><li>kafak</li><li>pulsar</li></ul></li></ul></li></ul></blockquote><blockquote class="pullquote mindmap mindmap-md"><ul><li><a href="https://hunterx.xyz/hexo-simple-mindmap-plugin-intro.html" target="_blank" rel="noopener">Hexo 的思维导图插件</a><ul><li>前言</li><li>使用方法<ul><li>一</li><li>二</li><li>三</li></ul></li><li>太长不看</li><li>参考资料</li></ul></li></ul></blockquote> ]]></content>
     
     <summary type="html">
     
