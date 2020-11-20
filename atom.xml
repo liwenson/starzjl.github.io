@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-11-18T09:46:08.357Z</updated>
+  <updated>2020-11-19T06:12:52.108Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,23 +21,22 @@
     <link href="http://yoursite.com/2020/11/18/golang%E5%AD%A6%E4%B9%A0%E6%89%8B%E5%86%8C/"/>
     <id>http://yoursite.com/2020/11/18/golang%E5%AD%A6%E4%B9%A0%E6%89%8B%E5%86%8C/</id>
     <published>2020-11-18T08:23:27.000Z</published>
-    <updated>2020-11-18T09:46:08.357Z</updated>
+    <updated>2020-11-19T06:12:52.108Z</updated>
     
-    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>知识图谱<ul><li>Scala</li><li>Python</li><li>java<ul><li>jvm</li></ul></li><li>消息队列<ul><li>kafak</li><li>pulsar</li></ul></li></ul></li></ul></blockquote><blockquote class="pullquote mindmap mindmap-md"><ul><li><a href="https://hunterx.xyz/hexo-simple-mindmap-plugin-intro.html" target="_blank" rel="noopener">Hexo 的思维导图插件</a><ul><li>前言</li><li>使用方法<ul><li>一</li><li>二</li><li>三</li></ul></li><li>太长不看</li><li>参考资料</li></ul></li></ul></blockquote> <blockquote class="pullquote mindmap mindmap-md"><ul><li>Fengx<ul><li>任何方向<ul><li>编程语言<ul><li>Java</li></ul></li><li>SQL</li><li>Linux</li><li>Git</li></ul></li><li>技术<ul><li>Java Web</li><li>数据库</li><li>Docker</li><li>svn</li><li>消息队列(MQ)</li><li>mycat</li><li>大数据<ul><li>Hadoop</li><li>HBase</li></ul></li></ul></li><li>内功<ul><li>计算机基础<ul><li>计算机网络</li><li>计算机操作系统</li><li>编译原理</li><li>计算机组成原理</li></ul></li><li>数据结构与算法</li><li>设计模式</li><li>性能优化</li><li>架构设计</li><li>软件工程</li></ul></li><li>其他<ul><li>英语</li><li>博客</li></ul></li></ul></li></ul></blockquote><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>go运维开发课程<ul><li>环境<ul><li>CentOS 7.X</li><li>Go 1.13</li></ul></li><li>手撕go语言(10天)<ul><li>第01天</li><li>第02天</li><li>第03天</li><li>第04天</li><li>第05天</li><li>第06天</li><li>第07天</li><li>第08天</li><li>第09天</li><li>第10天</li></ul></li><li>手撕数据库(2天)(1天课程+1天录播)<ul><li>第11天</li><li>第12天</li></ul></li><li>web(6天)(4天课程+2天录播)<ul><li>第13天</li><li>第14天</li><li>第15天</li><li>第16天</li><li>第17天(录播)</li><li>第18天(录播)</li></ul></li><li>项目(7天)(5天课程+2天录播)<ul><li>多云平台云主机管理(2天)(录播)<ul><li>第19天(录播)</li><li>第20天(录播)</li></ul></li><li>监控系统prometheus原理剖析与二次开发(3天)<ul><li>第21天</li><li>第22天</li><li>第23天</li></ul></li><li>发布系统syncd原理剖析(1天)<ul><li>第24天</li></ul></li><li>容器云k8s介绍与二次开发(1天)<ul><li>第25天</li></ul></li></ul></li></ul></li></ul></blockquote><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
     
     <summary type="html">
     
       
       
         &lt;blockquote class=&quot;pullquote mindmap mindmap-md&quot;&gt;&lt;ul&gt;
-&lt;li&gt;知识图谱&lt;ul&gt;
-&lt;li&gt;Scala&lt;/li&gt;
-&lt;li&gt;Python&lt;/li&gt;
-&lt;li&gt;java&lt;ul&gt;
-&lt;li&gt;jvm&lt;/li&gt;
+&lt;li&gt;go运维开发课程&lt;ul&gt;
+&lt;li&gt;环境&lt;ul&gt;
+&lt;li&gt;CentOS 7.X&lt;/li&gt;
+&lt;li&gt;Go 1.13&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;
+&lt;li&gt;手撕go语
       
     
     </summary>
