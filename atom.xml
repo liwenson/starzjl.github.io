@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-11-19T06:12:52.108Z</updated>
+  <updated>2020-11-20T07:03:27.988Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,22 +21,15 @@
     <link href="http://yoursite.com/2020/11/18/golang%E5%AD%A6%E4%B9%A0%E6%89%8B%E5%86%8C/"/>
     <id>http://yoursite.com/2020/11/18/golang%E5%AD%A6%E4%B9%A0%E6%89%8B%E5%86%8C/</id>
     <published>2020-11-18T08:23:27.000Z</published>
-    <updated>2020-11-19T06:12:52.108Z</updated>
+    <updated>2020-11-20T07:03:27.988Z</updated>
     
-    <content type="html"><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul><li>go运维开发课程<ul><li>环境<ul><li>CentOS 7.X</li><li>Go 1.13</li></ul></li><li>手撕go语言(10天)<ul><li>第01天</li><li>第02天</li><li>第03天</li><li>第04天</li><li>第05天</li><li>第06天</li><li>第07天</li><li>第08天</li><li>第09天</li><li>第10天</li></ul></li><li>手撕数据库(2天)(1天课程+1天录播)<ul><li>第11天</li><li>第12天</li></ul></li><li>web(6天)(4天课程+2天录播)<ul><li>第13天</li><li>第14天</li><li>第15天</li><li>第16天</li><li>第17天(录播)</li><li>第18天(录播)</li></ul></li><li>项目(7天)(5天课程+2天录播)<ul><li>多云平台云主机管理(2天)(录播)<ul><li>第19天(录播)</li><li>第20天(录播)</li></ul></li><li>监控系统prometheus原理剖析与二次开发(3天)<ul><li>第21天</li><li>第22天</li><li>第23天</li></ul></li><li>发布系统syncd原理剖析(1天)<ul><li>第24天</li></ul></li><li>容器云k8s介绍与二次开发(1天)<ul><li>第25天</li></ul></li></ul></li></ul></li></ul></blockquote><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+    <content type="html"><![CDATA[<h1 id="Day01"><a href="#Day01" class="headerlink" title="Day01"></a>Day01</h1><h2 id="学习计划"><a href="#学习计划" class="headerlink" title="学习计划"></a>学习计划</h2><blockquote class="pullquote mindmap mindmap-md"><ul><li>go运维开发课程<ul><li>环境<ul><li>CentOS 7.X</li><li>Go 1.13</li></ul></li><li>手撕go语言(10天)<ul><li>第01天</li><li>第02天</li><li>第03天</li><li>第04天</li><li>第05天</li><li>第06天</li><li>第07天</li><li>第08天</li><li>第09天</li><li>第10天</li></ul></li><li>手撕数据库(2天)(1天课程+1天录播)<ul><li>第11天</li><li>第12天</li></ul></li><li>web(6天)(4天课程+2天录播)<ul><li>第13天</li><li>第14天</li><li>第15天</li><li>第16天</li><li>第17天(录播)</li><li>第18天(录播)</li></ul></li><li>项目(7天)(5天课程+2天录播)<ul><li>多云平台云主机管理(2天)(录播)<ul><li>第19天(录播)</li><li>第20天(录播)</li></ul></li><li>监控系统prometheus原理剖析与二次开发(3天)<ul><li>第21天</li><li>第22天</li><li>第23天</li></ul></li><li>发布系统syncd原理剖析(1天)<ul><li>第24天</li></ul></li><li>容器云k8s介绍与二次开发(1天)<ul><li>第25天</li></ul></li></ul></li></ul></li></ul></blockquote><h2 id="golang介绍"><a href="#golang介绍" class="headerlink" title="golang介绍"></a>golang介绍</h2><h3 id="初识GO语言"><a href="#初识GO语言" class="headerlink" title="初识GO语言"></a>初识GO语言</h3><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
     
     <summary type="html">
     
       
       
-        &lt;blockquote class=&quot;pullquote mindmap mindmap-md&quot;&gt;&lt;ul&gt;
-&lt;li&gt;go运维开发课程&lt;ul&gt;
-&lt;li&gt;环境&lt;ul&gt;
-&lt;li&gt;CentOS 7.X&lt;/li&gt;
-&lt;li&gt;Go 1.13&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;手撕go语
+        &lt;h1 id=&quot;Day01&quot;&gt;&lt;a href=&quot;#Day01&quot; class=&quot;headerlink&quot; title=&quot;Day01&quot;&gt;&lt;/a&gt;Day01&lt;/h1&gt;&lt;h2 id=&quot;学习计划&quot;&gt;&lt;a href=&quot;#学习计划&quot; class=&quot;headerlink&quot; title=&quot;学习计划&quot;
       
     
     </summary>
